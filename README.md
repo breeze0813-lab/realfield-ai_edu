@@ -12,11 +12,11 @@
 | URL | 파일 | 내용 |
 |---|---|---|
 | `/` | `index.html` | 본 랜딩페이지 — 차별화·사례·강연 메뉴·연락처 |
-| `/guide` | `ai-guide.html` | AI 자동화 기본 세팅 가이드 — 인터랙티브 자가 진단 포함 |
-| `/practice` | `practice-persona.html` | 페르소나 첫 세팅 15분 실습 — 입력→시스템 프롬프트 자동 생성→복사 |
+| `/guide` | `guide.html` | AI 자동화 기본 세팅 가이드 — 인터랙티브 자가 진단 포함 |
+| `/practice` | `practice.html` | 페르소나 첫 세팅 15분 실습 — 입력→시스템 프롬프트 자동 생성→복사 |
 | `/slides` | `slides.html` | 6/11 학원장 세미나 슬라이드 (Reveal.js 34장) |
 
-URL rewrite는 `vercel.json`에서 처리. `cleanUrls: true`라 `.html` 확장자 없이 접근 가능.
+각 파일명이 클린 URL과 일치하므로 `cleanUrls: true`만으로 `.html` 없이 접근됩니다 (별도 rewrite 불필요). 구 경로(`ai-guide`·`practice-persona`)는 `vercel.json`의 redirect로 새 경로로 이동합니다.
 
 ---
 
@@ -65,11 +65,11 @@ git push origin main
 - 검증 사례 카드: `<section class="cases">` 안의 `.case-card`. 실물 이미지 추가 시 카드 상단에 `<img>` 삽입.
 - 운영자 프로필 사진: `[프로필 사진]` placeholder를 실제 `<img>`로 교체. 240×240 권장.
 
-### ai-guide.html (가이드)
+### guide.html (가이드)
 - 자가 진단 단계 추가: `<div class="checklist">` 블록을 복사·수정.
 - 컬러 변경: `:root` 변수만 수정.
 
-### practice-persona.html (실습)
+### practice.html (실습)
 - 시스템 프롬프트 양식 수정: `<script>` 안 `buildPrompt()` 함수.
 - 비교 질문 카드 추가: `<div class="q-cards">` 안에 `<div class="q-card" data-q="...">` 추가.
 

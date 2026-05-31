@@ -2,10 +2,11 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
-  "rewrites": [
-    { "source": "/guide", "destination": "/ai-guide" },
-    { "source": "/practice", "destination": "/practice-persona" },
-    { "source": "/slides", "destination": "/slides" }
+  "redirects": [
+    { "source": "/ai-guide.html", "destination": "/guide", "permanent": true },
+    { "source": "/ai-guide", "destination": "/guide", "permanent": true },
+    { "source": "/practice-persona.html", "destination": "/practice", "permanent": true },
+    { "source": "/practice-persona", "destination": "/practice", "permanent": true }
   ],
   "headers": [
     {
