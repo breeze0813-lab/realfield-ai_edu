@@ -3,9 +3,9 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/guide", "destination": "/ai-guide.html" },
-    { "source": "/practice", "destination": "/practice-persona.html" },
-    { "source": "/slides", "destination": "/slides.html" }
+    { "source": "/guide", "destination": "/ai-guide" },
+    { "source": "/practice", "destination": "/practice-persona" },
+    { "source": "/slides", "destination": "/slides" }
   ],
   "headers": [
     {
