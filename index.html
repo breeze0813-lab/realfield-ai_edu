@@ -340,6 +340,37 @@
     line-height: 1.4;
     margin-bottom: 18px;
   }
+  .case-shot {
+    width: 100%;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--line);
+    margin: 0 0 18px;
+    display: block;
+    background: var(--white);
+  }
+  .case-shots {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin: 0 0 18px;
+  }
+  @media (min-width: 720px) {
+    .case-shots { grid-template-columns: repeat(3, 1fr); }
+  }
+  .case-shots figure { margin: 0; }
+  .case-shots img {
+    width: 100%;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--line);
+    background: var(--white);
+    display: block;
+  }
+  .case-shots figcaption {
+    color: var(--grey);
+    font-size: 12.5px;
+    text-align: center;
+    margin-top: 6px;
+  }
   .case-row {
     display: grid;
     grid-template-columns: 80px 1fr;
@@ -876,6 +907,8 @@
       <div class="case-card">
         <div class="case-tag">학원 운영 · 학생 진단</div>
         <h3>시험지 1장 → 학부모 보고서 + 강사 로드맵</h3>
+        <img class="case-shot" src="images/placement-report-1.png" alt="입반테스트 자동 생성 보고서 — 점수 요약 인포그래픽">
+        <p style="color:var(--grey); font-size:13px; margin:-8px 0 16px; text-align:center;">실제 산출물 — 학생 식별 정보는 익명 처리</p>
         <div class="case-row">
           <div class="lbl">상황</div>
           <div class="val">입반테스트 후 채점·보고서·반 배정·학습 방향까지 분리 없이 <em class="h">한 사람 손으로</em></div>
@@ -897,6 +930,21 @@
       <div class="case-card case-full">
         <div class="case-tag">학원 운영 · 학부모 응대</div>
         <h3>"안 좋은 피드백을 매일 강제로 받는 부담" — 학부모 단일링크 누적 피드백</h3>
+        <div class="case-shots">
+          <figure>
+            <img src="images/app-login.png" alt="피드백 입력 시스템 로그인 화면">
+            <figcaption>① 강사·조교 로그인</figcaption>
+          </figure>
+          <figure>
+            <img src="images/app-dashboard.png" alt="강사 대시보드 — 반 선택 화면">
+            <figcaption>② 반 선택 대시보드</figcaption>
+          </figure>
+          <figure>
+            <img src="images/feedback-common.png" alt="공통 피드백 입력 화면">
+            <figcaption>③ 피드백 입력</figcaption>
+          </figure>
+        </div>
+        <p style="color:var(--grey); font-size:13px; margin:-4px 0 16px; text-align:center;">실제 자체 제작 시스템 화면 — 강사·학생 식별 정보는 익명 처리</p>
         <div style="display:grid; grid-template-columns:1fr; gap:0; margin-bottom:14px;">
           <div class="case-row">
             <div class="lbl">상황</div>
