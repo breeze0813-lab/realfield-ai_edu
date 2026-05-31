@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>엄지희 — 학원장의 언어로, 학부모의 언어로</title>
+<meta name="description" content="현직 학원장이자 초4 학부모인 엄지희가 직접 검증한, 한국 교육 현장에 진짜 쓰이는 AI 사용법. 강연·컨설팅·콘텐츠.">
+<meta property="og:title" content="엄지희 — 현직 학원장이 직접 만들어 쓰는 AI 교육">
+<meta property="og:description" content="이론이 아니라, 학원과 가정에서 진짜 써본 것만 말합니다.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Serif+KR:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1F3864;
+    --navy-deep: #14254A;
+    --navy-soft: #E8EEF5;
+    --accent: #C57B57;
+    --accent-soft: #F5E9DF;
+    --bg: #FAF7F2;
+    --white: #FFFFFF;
+    --dark: #2A2A2A;
+    --grey: #777777;
+    --grey-light: #BBBBBB;
+    --line: #E5E0D8;
+    --success: #2D6A4F;
+    --shadow: 0 2px 12px rgba(31, 56, 100, 0.06);
+    --shadow-md: 0 4px 20px rgba(31, 56, 100, 0.08);
+    --shadow-lg: 0 12px 40px rgba(31, 56, 100, 0.12);
+    --radius: 14px;
+    --radius-sm: 8px;
+    --max-w: 1080px;
+    --max-w-text: 740px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--dark);
+    background: var(--bg);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  a { color: inherit; }
+
+  /* ===== TOPNAV ===== */
+  .topnav {
+    position: sticky;
+    top: 0;
+    background: rgba(250, 247, 242, 0.85);
+    backdrop-filter: saturate(180%) blur(14px);
+    -webkit-backdrop-filter: saturate(180%) blur(14px);
+    border-bottom: 1px solid var(--line);
+    z-index: 100;
+  }
+  .topnav-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 14px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+  }
+  .topnav-brand {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 18px;
+    letter-spacing: -0.01em;
+  }
+  .topnav-brand .accent { color: var(--accent); font-weight: 400; }
+  .topnav-links {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+  }
+  .topnav-links a {
+    text-decoration: none;
+    color: var(--grey);
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.15s;
+  }
+  .topnav-links a:hover { color: var(--navy); }
+  @media (max-width: 720px) {
+    .topnav-links { display: none; }
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    padding: 120px 28px 100px;
+    text-align: center;
+    max-width: var(--max-w-text);
+    margin: 0 auto;
+  }
+  .hero-eyebrow {
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 24px;
+  }
+  .hero-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(34px, 6.5vw, 56px);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 28px;
+    letter-spacing: -0.025em;
+  }
+  .hero-title .br {
+    color: var(--accent);
+    font-style: italic;
+    font-weight: 400;
+  }
+  .hero-sub {
+    color: var(--dark);
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  .hero-tags {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 38px;
+  }
+  .tag {
+    background: var(--white);
+    border: 1px solid var(--line);
+    color: var(--navy);
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-size: 13.5px;
+    font-weight: 500;
+  }
+
+  /* ===== SECTION BASE ===== */
+  section {
+    padding: 90px 28px;
+  }
+  .section-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+  .section-narrow {
+    max-width: var(--max-w-text);
+    margin: 0 auto;
+  }
+  .section-head {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+  .section-num {
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 14px;
+  }
+  h2 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(28px, 4.5vw, 40px);
+    color: var(--navy);
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+  }
+  h3 {
+    font-size: 19px;
+    color: var(--navy);
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .section-sub {
+    color: var(--grey);
+    font-size: 16px;
+    margin-top: 16px;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+  }
+
+  /* ===== WHO-FOR (학원장 / 학부모 분기) ===== */
+  .who-for {
+    background: var(--white);
+  }
+  .who-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-top: 40px;
+  }
+  @media (min-width: 720px) {
+    .who-grid { grid-template-columns: 1fr 1fr; }
+  }
+  .who-card {
+    background: var(--bg);
+    border-radius: var(--radius);
+    padding: 40px 32px;
+    border: 1px solid var(--line);
+  }
+  .who-card .who-label {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 14px;
+  }
+  .who-card h3 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 24px;
+    margin-bottom: 18px;
+  }
+  .who-card ul {
+    list-style: none;
+    margin: 0 0 24px 0;
+    padding: 0;
+  }
+  .who-card li {
+    color: var(--dark);
+    font-size: 15px;
+    line-height: 1.7;
+    padding-left: 18px;
+    position: relative;
+    margin-bottom: 10px;
+  }
+  .who-card li::before {
+    content: "·";
+    position: absolute;
+    left: 4px;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .who-card .who-cta {
+    color: var(--navy);
+    font-size: 14.5px;
+    font-weight: 700;
+    border-top: 1px solid var(--line);
+    padding-top: 18px;
+    margin-top: 18px;
+  }
+
+  /* ===== DIFFERENTIATION 3축 ===== */
+  .diff-list {
+    display: grid;
+    gap: 24px;
+    margin-top: 40px;
+  }
+  .diff-item {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 36px 36px;
+    box-shadow: var(--shadow);
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+  .diff-num {
+    font-family: 'Noto Serif KR', serif;
+    color: var(--accent);
+    font-size: 42px;
+    font-weight: 900;
+    line-height: 1;
+  }
+  .diff-item h3 {
+    margin-bottom: 12px;
+    font-size: 20px;
+  }
+  .diff-item p {
+    color: var(--dark);
+    font-size: 15.5px;
+    line-height: 1.75;
+    margin-bottom: 10px;
+  }
+  .diff-item p:last-child { margin-bottom: 0; }
+  .diff-item .quote-inline {
+    background: var(--accent-soft);
+    border-left: 3px solid var(--accent);
+    padding: 14px 18px;
+    margin-top: 14px;
+    color: var(--navy);
+    font-family: 'Noto Serif KR', serif;
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.6;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  }
+  @media (max-width: 480px) {
+    .diff-item { grid-template-columns: 1fr; padding: 28px 24px; }
+    .diff-num { font-size: 32px; margin-bottom: -8px; }
+  }
+
+  /* ===== CASES ===== */
+  .cases {
+    background: var(--white);
+  }
+  .case-disclaimer {
+    text-align: center;
+    color: var(--grey);
+    font-size: 13.5px;
+    font-style: italic;
+    margin: 24px auto 36px;
+    max-width: 580px;
+  }
+  .case-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  @media (min-width: 720px) {
+    .case-grid { grid-template-columns: 1fr 1fr; }
+    .case-grid .case-full { grid-column: span 2; }
+  }
+  .case-card {
+    background: var(--bg);
+    border-radius: var(--radius);
+    padding: 32px;
+    border-top: 4px solid var(--accent);
+  }
+  .case-card .case-tag {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+  .case-card h3 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 22px;
+    line-height: 1.4;
+    margin-bottom: 18px;
+  }
+  .case-row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 14px;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .case-row:last-child { border-bottom: none; }
+  .case-row .lbl {
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .case-row .val {
+    color: var(--dark);
+    font-size: 14.5px;
+    line-height: 1.65;
+  }
+  .case-card .case-msg {
+    background: var(--white);
+    border-radius: var(--radius-sm);
+    padding: 14px 18px;
+    margin-top: 16px;
+    color: var(--navy);
+    font-size: 14px;
+    font-style: italic;
+    font-family: 'Noto Serif KR', serif;
+    line-height: 1.6;
+  }
+
+  /* ===== MENU (강연·콘텐츠) ===== */
+  .menu-section {
+    background: var(--navy);
+    color: var(--white);
+  }
+  .menu-section h2 { color: var(--white); }
+  .menu-section .section-sub { color: rgba(255,255,255,0.7); }
+  .menu-section .section-num { color: var(--accent); }
+  .menu-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 40px;
+  }
+  @media (min-width: 720px) {
+    .menu-grid { grid-template-columns: 1fr 1fr 1fr; }
+  }
+  .menu-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+  }
+  .menu-card .menu-tag {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+  .menu-card h3 {
+    color: var(--white);
+    font-family: 'Noto Serif KR', serif;
+    font-size: 20px;
+    margin-bottom: 14px;
+  }
+  .menu-card .menu-list {
+    list-style: none;
+    margin: 0 0 18px 0;
+    padding: 0;
+  }
+  .menu-card .menu-list li {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 14.5px;
+    line-height: 1.7;
+    padding-left: 16px;
+    position: relative;
+    margin-bottom: 8px;
+  }
+  .menu-card .menu-list li::before {
+    content: "›";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .menu-card .menu-note {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 13px;
+    font-style: italic;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-top: 14px;
+    margin-top: 14px;
+  }
+  .menu-section .menu-foot {
+    text-align: center;
+    margin-top: 40px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .menu-section .menu-foot a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    font-weight: 700;
+  }
+  .menu-section .menu-foot a:hover { border-bottom-color: var(--accent); }
+
+  /* ===== SERIES STAGES ===== */
+  .series-stages {
+    display: grid;
+    gap: 14px;
+    margin-top: 40px;
+  }
+  .stage {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 22px 28px;
+    box-shadow: var(--shadow);
+    display: grid;
+    grid-template-columns: 48px 1fr auto;
+    gap: 20px;
+    align-items: center;
+  }
+  .stage .stg-num {
+    background: var(--navy);
+    color: var(--white);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 17px;
+    font-family: 'Noto Serif KR', serif;
+  }
+  .stage.now .stg-num { background: var(--accent); }
+  .stage h4 {
+    font-size: 17px;
+    color: var(--navy);
+    margin: 0 0 4px;
+  }
+  .stage p {
+    color: var(--grey);
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.6;
+  }
+  .stage .stg-when {
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .stage.now .stg-when {
+    background: var(--accent);
+    color: var(--white);
+    padding: 4px 12px;
+    border-radius: 999px;
+  }
+  @media (max-width: 600px) {
+    .stage { grid-template-columns: 40px 1fr; }
+    .stage .stg-when { grid-column: 1 / -1; text-align: right; }
+  }
+
+  /* ===== ABOUT (운영자) ===== */
+  .about {
+    background: var(--white);
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  @media (min-width: 720px) {
+    .about-grid { grid-template-columns: 240px 1fr; }
+  }
+  .about-photo {
+    width: 240px;
+    height: 240px;
+    border-radius: var(--radius);
+    background: var(--navy-soft);
+    border: 2px dashed var(--navy);
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: italic;
+    font-size: 14px;
+    margin: 0 auto;
+    flex-shrink: 0;
+  }
+  .about-text h3 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 26px;
+    margin-bottom: 8px;
+  }
+  .about-text .about-subtitle {
+    color: var(--accent);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+  }
+  .about-text p {
+    color: var(--dark);
+    font-size: 15.5px;
+    line-height: 1.75;
+    margin-bottom: 12px;
+  }
+  .about-text ul {
+    list-style: none;
+    margin: 16px 0;
+    padding: 0;
+  }
+  .about-text li {
+    color: var(--dark);
+    font-size: 14.5px;
+    padding-left: 18px;
+    position: relative;
+    margin-bottom: 8px;
+    line-height: 1.6;
+  }
+  .about-text li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
+  /* ===== TODAK (다른 채널) ===== */
+  .other-channels {
+    margin-top: 32px;
+    padding: 24px 28px;
+    background: var(--bg);
+    border-radius: var(--radius);
+    border-left: 4px solid var(--accent);
+  }
+  .other-channels h4 {
+    color: var(--accent);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+  .other-channels p {
+    color: var(--dark);
+    font-size: 14.5px;
+    line-height: 1.7;
+    margin: 0;
+  }
+  .other-channels a {
+    color: var(--navy);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1px solid var(--navy-soft);
+  }
+  .other-channels a:hover { border-bottom-color: var(--navy); }
+
+  /* ===== CONTACT ===== */
+  .contact {
+    background: var(--navy);
+    color: var(--white);
+  }
+  .contact h2 { color: var(--white); }
+  .contact .section-sub { color: rgba(255,255,255,0.75); }
+  .contact .section-num { color: var(--accent); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 40px;
+    max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .contact-row {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-sm);
+    padding: 18px 24px;
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 16px;
+    align-items: center;
+  }
+  .contact-row .ct-lbl {
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .contact-row .ct-val {
+    color: var(--white);
+    font-size: 15px;
+  }
+  .contact-row a {
+    color: var(--white);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+  .contact-row a:hover { border-bottom-color: var(--accent); }
+  .contact-foot {
+    text-align: center;
+    margin-top: 36px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    line-height: 1.7;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ===== RECOMMEND CARD ===== */
+  .recommend {
+    background: var(--accent-soft);
+    border-radius: var(--radius);
+    padding: 32px 32px;
+    margin-top: 40px;
+    text-align: center;
+  }
+  .recommend .lbl {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+  }
+  .recommend .quote-text {
+    font-family: 'Noto Serif KR', serif;
+    font-style: italic;
+    color: var(--navy);
+    font-size: 17px;
+    line-height: 1.7;
+    margin: 0;
+  }
+  .recommend .quote-text em {
+    color: var(--accent);
+    font-style: normal;
+    font-weight: 700;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    padding: 40px 28px 60px;
+    text-align: center;
+    color: var(--grey);
+    font-size: 13px;
+    background: var(--bg);
+  }
+  footer .sig {
+    font-family: 'Noto Serif KR', serif;
+    font-style: italic;
+    color: var(--navy);
+    margin-bottom: 6px;
+    font-size: 14px;
+  }
+  footer .copy {
+    margin-top: 12px;
+    color: var(--grey-light);
+  }
+
+  /* ===== UTILITIES ===== */
+  em.h { font-style: normal; color: var(--accent); font-weight: 700; }
+  strong.navy { color: var(--navy); }
+</style>
+</head>
+<body>
+
+<!-- ===== TOPNAV ===== -->
+<nav class="topnav">
+  <div class="topnav-inner">
+    <div class="topnav-brand">엄지희 <span class="accent">·</span> AI 교육</div>
+    <div class="topnav-links">
+      <a href="#about">소개</a>
+      <a href="#cases">사례</a>
+      <a href="#menu">강연·콘텐츠</a>
+      <a href="#series">시리즈</a>
+      <a href="#contact">연락처</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="hero-eyebrow">현직 학원장 · 초4 학부모</div>
+  <h1 class="hero-title">
+    학원장의 언어로,<br>
+    <span class="br">학부모의 언어로</span>
+  </h1>
+  <p class="hero-sub">
+    이론이 아니라, 학원과 가정에서 <em class="h">진짜 써본 것</em>만 말합니다.<br>
+    한국 교육 현장에 실제로 쓰이는 AI 사용법을 1년간 직접 살아본 사람의 시각으로.
+  </p>
+  <div class="hero-tags">
+    <span class="tag">T-Point Edu 학원장</span>
+    <span class="tag">초4 학부모</span>
+    <span class="tag">거여초 학부모회장</span>
+  </div>
+</header>
+
+<!-- ===== WHO-FOR ===== -->
+<section class="who-for" id="who-for">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-num">01 — FOR WHOM</div>
+      <h2>이 페이지는 두 분을 위해 만들었습니다</h2>
+    </div>
+    <div class="who-grid">
+      <!-- 학원장 -->
+      <div class="who-card">
+        <div class="who-label">FOR · 학원장</div>
+        <h3>학원장이세요?</h3>
+        <ul>
+          <li>"AI 도입해야 한다는 건 알겠는데, 어디부터 시작해야 할지 모르겠다"</li>
+          <li>"조교·강사 인건비는 오르는데 매출은 정체다"</li>
+          <li>"AI 학원이 우후죽순 생긴다는데, 우리 학원은 괜찮을까"</li>
+        </ul>
+        <div class="who-cta">
+          같은 학원장으로서, 1년간 직접 도입하며 배운 것을 솔직히 나눕니다. <br>
+          <a href="#cases" style="color:var(--accent); text-decoration:none;">→ 학원장 사례 보기</a>
+        </div>
+      </div>
+      <!-- 학부모 -->
+      <div class="who-card">
+        <div class="who-label">FOR · 학부모</div>
+        <h3>학부모세요?</h3>
+        <ul>
+          <li>"우리 아이가 AI로 숙제를 해온다, 어떻게 해야 할지 모르겠다"</li>
+          <li>"AI 시대에 우리 아이 사고력이 망가질까 두렵다"</li>
+          <li>"어떤 AI는 시켜도 되고 어떤 건 안 되는지 명확한 가이드를 원한다"</li>
+        </ul>
+        <div class="who-cta">
+          초4 아들을 키우는 같은 학부모로서, 시켜보고 효과·부작용을 모두 정리해드립니다.<br>
+          <a href="#contact" style="color:var(--accent); text-decoration:none;">→ 학부모 강연·콘텐츠 안내</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DIFFERENTIATION ===== -->
+<section id="about-diff">
+  <div class="section-inner section-narrow">
+    <div class="section-head">
+      <div class="section-num">02 — WHY</div>
+      <h2>왜 엄지희인가</h2>
+      <p class="section-sub">다른 AI 강사와 무엇이 다른가 — 3가지 축으로 정리합니다.</p>
+    </div>
+    <div class="diff-list">
+      <!-- 1 -->
+      <div class="diff-item">
+        <div class="diff-num">1</div>
+        <div>
+          <h3>같은 입장의 언어</h3>
+          <p>완전 전문가·이론가의 말은 학원장이 공감하지 못합니다. 학부모도 마찬가지입니다.</p>
+          <p>저는 <strong class="navy">현직 학원장</strong>입니다 (T-Point Edu 운영).<br>
+          저는 <strong class="navy">초4 아들을 키우는 학부모</strong>입니다.</p>
+          <p>학원장에게는 학원장이 어제 본 풍경에서 시작하고,<br>
+          학부모에게는 학부모가 어제 본 풍경에서 시작합니다.</p>
+        </div>
+      </div>
+      <!-- 2 -->
+      <div class="diff-item">
+        <div class="diff-num">2</div>
+        <div>
+          <h3>현장 검증</h3>
+          <p>매 콘텐츠·강연·컨설팅마다, 제가 <em class="h">직접 학원·가정에서 도입해본 사례</em>만 다룹니다.</p>
+          <p>이론적으로 가능한 것 ≠ 실제로 효과 있는 것.</p>
+          <div class="quote-inline">
+            "이 프롬프트를 한 달 써본 결과 시간이 40% 줄었다."<br>
+            "이 도구를 처음 2주는 효과, 3주째부터 부작용이 나타났다."
+          </div>
+          <p style="margin-top:14px;">— 이런 디테일이 신뢰의 시작이라고 믿습니다. <strong class="navy">검증되지 않은 이야기는 다루지 않습니다.</strong></p>
+        </div>
+      </div>
+      <!-- 3 -->
+      <div class="diff-item">
+        <div class="diff-num">3</div>
+        <div>
+          <h3>균형 관점</h3>
+          <p>AI 옹호도, AI 공포도 답이 아닙니다.</p>
+          <p>"AI 빨리 도입 안 하면 뒤처진다" — FOMO 자극.<br>
+          "AI가 사고력 망친다" — 불안 자극.</p>
+          <div class="quote-inline">
+            저의 일관된 메시지는: "어디까지는 쓰고, 어디서는 멈춰야 하는가.<br>
+            그 경계를 같이 정합시다."
+          </div>
+          <p style="margin-top:14px;">학원에서도, 가정에서도, 이 경계를 만드는 게 진짜 어른의 일이라고 생각합니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CASES ===== -->
+<section class="cases" id="cases">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-num">03 — CASES</div>
+      <h2>제가 직접 써본 사례</h2>
+    </div>
+    <p class="case-disclaimer">
+      모든 사례는 T-Point Edu 또는 우리 가정에서 실제 진행한 것입니다. 학생·강사·금액 등 식별 정보는 모두 익명 처리했습니다.
+    </p>
+
+    <div class="case-grid">
+      <!-- 사례 1 -->
+      <div class="case-card">
+        <div class="case-tag">학원 운영 · 인사·인건비</div>
+        <h3>매월 반나절 사라지던 급여날 — 30분으로</h3>
+        <div class="case-row">
+          <div class="lbl">상황</div>
+          <div class="val">조교 출퇴근 장부, 비율제 강사 정산, 4대보험·세금까지 매월 <em class="h">3~4시간</em> 소요</div>
+        </div>
+        <div class="case-row">
+          <div class="lbl">시도</div>
+          <div class="val">AI(Claude)와 같이 Python 자동화 도구 제작 — 코딩 없이 <em class="h">말로 설명</em>만</div>
+        </div>
+        <div class="case-row">
+          <div class="lbl">결과</div>
+          <div class="val">반나절 → <strong class="navy">30분</strong>. 남은 시간은 상담·수업 준비·비전 시간으로</div>
+        </div>
+        <div class="case-msg">
+          반복은 AI에게, <em>판단은 사람에게</em>.
+        </div>
+      </div>
+
+      <!-- 사례 2 -->
+      <div class="case-card">
+        <div class="case-tag">학원 운영 · 학생 진단</div>
+        <h3>시험지 1장 → 학부모 보고서 + 강사 로드맵</h3>
+        <div class="case-row">
+          <div class="lbl">상황</div>
+          <div class="val">입반테스트 후 채점·보고서·반 배정·학습 방향까지 분리 없이 <em class="h">한 사람 손으로</em></div>
+        </div>
+        <div class="case-row">
+          <div class="lbl">시도</div>
+          <div class="val">자동 채점 + <strong class="navy">3종 산출물</strong>(인포그래픽·학부모용·강사용) 자동 생성</div>
+        </div>
+        <div class="case-row">
+          <div class="lbl">결과</div>
+          <div class="val">강사 1명당 5분 안에 완성. 단 <em class="h">수학은 매쓰플랫 유지</em> — 시중 도구가 충분한 영역은 안 만듦</div>
+        </div>
+        <div class="case-msg">
+          시중 도구가 <em>못 채우는 영역만</em> 자체 제작.
+        </div>
+      </div>
+
+      <!-- 사례 3 (full width) -->
+      <div class="case-card case-full">
+        <div class="case-tag">학원 운영 · 학부모 응대</div>
+        <h3>"안 좋은 피드백을 매일 강제로 받는 부담" — 학부모 단일링크 누적 피드백</h3>
+        <div style="display:grid; grid-template-columns:1fr; gap:0; margin-bottom:14px;">
+          <div class="case-row">
+            <div class="lbl">상황</div>
+            <div class="val">시중 학원 앱은 매 수업 후 피드백을 자동 푸시 → 학부모 입장에서는 <em class="h">매일 부담</em>, 강사 입장에서는 푸시 안 켠 학부모에게 안 전달됨</div>
+          </div>
+          <div class="case-row">
+            <div class="lbl">시도</div>
+            <div class="val">노션 + 자체 시스템으로 학생별 <strong class="navy">단일 링크</strong> 누적 피드백 — 푸시 ❌ 링크 접근 ✅</div>
+          </div>
+          <div class="case-row">
+            <div class="lbl">결과</div>
+            <div class="val">학부모가 <em class="h">원할 때 확인</em> → 부담감 사라짐 / 강사는 <em class="h">전달률 걱정 빠짐</em> / 학생도 숙제 확인용으로 활용</div>
+          </div>
+        </div>
+        <div class="case-msg">
+          자동화한다고 다 좋은 게 아니라, <em>어떤 방향으로 자동화하느냐</em>가 핵심.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MENU ===== -->
+<section class="menu-section" id="menu">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-num">04 — WORKS</div>
+      <h2>함께 작업할 수 있는 일</h2>
+      <p class="section-sub">강연·콘텐츠·자문 — 모든 작업은 한 가지 원칙으로: <em class="h">제가 직접 검증한 것만</em></p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-card">
+        <div class="menu-tag">FOR · 학원장</div>
+        <h3>학원장 강연·세미나</h3>
+        <ul class="menu-list">
+          <li>현직 학원장이 AI 도입하며 배운 것</li>
+          <li>학원 운영 시간 줄이는 AI 워크플로우</li>
+          <li>AI 시대 학원의 자리 — 위협·기회</li>
+          <li>학원장 모임·연합회·교육 협회 초청</li>
+        </ul>
+        <div class="menu-note">의뢰·문의는 이메일로 부담 없이 보내주세요.</div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-tag">FOR · 학부모</div>
+        <h3>학부모 강연·콘텐츠</h3>
+        <ul class="menu-list">
+          <li>AI 시대 우리 아이 교육 — 어디까지 쓰고 어디서 멈출까</li>
+          <li>학년별 추천·금지 AI 도구 가이드</li>
+          <li>학교·도서관·학부모회 초청 강연</li>
+          <li>분기별 학부모 토크콘서트 (오픈 행사)</li>
+        </ul>
+        <div class="menu-note">학교·학부모회는 사전 협의로 진행합니다.</div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-tag">FOR · 학원 운영자</div>
+        <h3>학원 AI 도입 자문</h3>
+        <ul class="menu-list">
+          <li>학원 현황 진단 — 도입 우선순위 정리</li>
+          <li>도구 선택 자문 — 시중 도구 vs 자체 제작</li>
+          <li>월별 점검·조정 미팅</li>
+          <li>도입 후 조교·강사 적응 가이드</li>
+        </ul>
+        <div class="menu-note">한 번에 소수 학원만 진행 — 일정 협의 후 진행.</div>
+      </div>
+    </div>
+    <div class="menu-foot">
+      더 자세한 안내가 필요하시면 <a href="#contact">이메일로 연락</a>주세요.<br>
+      <span style="color:rgba(255,255,255,0.5); font-size:13px;">— 24시간 안에 답변드립니다.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERIES ===== -->
+<section id="series">
+  <div class="section-inner section-narrow">
+    <div class="section-head">
+      <div class="section-num">05 — SERIES</div>
+      <h2>학원장 AI 시리즈 강의</h2>
+      <p class="section-sub">학원장이 AI를 쓰는 방식의 4단계. 본인 학원이 어디인지 확인하고, 다음 단계로 가는 강의를 들으세요.</p>
+    </div>
+    <div class="series-stages">
+      <div class="stage">
+        <div class="stg-num">1</div>
+        <div>
+          <h4>ChatGPT 활용 입문</h4>
+          <p>프롬프트로 일을 도와받음 — 블로그·답변 초안</p>
+        </div>
+        <div class="stg-when">이전 단계</div>
+      </div>
+      <div class="stage now">
+        <div class="stg-num">2</div>
+        <div>
+          <h4>반복 작업 위임</h4>
+          <p>매번 하던 일을 AI에게 맡김 — 자동화 가이드·페르소나 세팅</p>
+        </div>
+        <div class="stg-when">6월 11일</div>
+      </div>
+      <div class="stage">
+        <div class="stg-num">3</div>
+        <div>
+          <h4>학원 맞춤 도구 제작</h4>
+          <p>자체 시스템을 직접 만듦 — 노션·앱·자동화 워크숍</p>
+        </div>
+        <div class="stg-when">7월 예정</div>
+      </div>
+      <div class="stage">
+        <div class="stg-num">4</div>
+        <div>
+          <h4>데이터 기반 학원 운영</h4>
+          <p>AI가 의사결정 파트너 — 장기 데이터 분석</p>
+        </div>
+        <div class="stg-when">8월 예정</div>
+      </div>
+    </div>
+
+    <div class="recommend">
+      <div class="lbl">동료 원장님께 소개하실 때</div>
+      <p class="quote-text">
+        "한 원장님인데, AI를 학원에 <em>직접 만들어 쓰는</em> 현직 학원장이에요.<br>
+        이론이 아니라 본인 학원 사례 그대로 보여줘서, 우리도 따라할 수 있어요."
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about" id="about">
+  <div class="section-inner section-narrow">
+    <div class="section-head">
+      <div class="section-num">06 — ABOUT</div>
+      <h2>운영자</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-photo">
+        [프로필 사진]
+      </div>
+      <div class="about-text">
+        <h3>엄지희 (Eom Jihee)</h3>
+        <div class="about-subtitle">현직 학원장 · 초4 학부모 · 학부모회장</div>
+        <p>20년간 한국 사교육 현장에서 입시·학습 전략 컨설팅을 해온 현직 학원장입니다. 2025년부터 학원 운영과 가정 양쪽에서 AI 도구를 본격 도입·검증하며, "교육 현장에 진짜 쓰이는 AI 사용법"을 화두로 콘텐츠·강연·자문 활동을 합니다.</p>
+        <p>AI 옹호론도 AI 공포론도 아닌 균형 관점에서, "어디까지는 쓰고, 어디서는 멈춰야 하는가"를 학원장·학부모 양쪽에 전합니다.</p>
+        <ul>
+          <li>T-Point Edu 학원장 (강동구 고덕동, 초·중·고 수학·영어)</li>
+          <li>거여초등학교 학부모회 회장 (2026~)</li>
+          <li>대치·반포·고덕 학군지 경력 20년</li>
+          <li>초등학교 4학년 자녀의 학부모</li>
+        </ul>
+
+        <div class="other-channels">
+          <h4>다른 채널</h4>
+          <p>학부모를 위한 일반 교육 콘텐츠는 별도 채널 <a href="https://instagram.com/todak_gongbu" target="_blank" rel="noopener">토닥공부 (@todak_gongbu)</a>에서 운영합니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact" id="contact">
+  <div class="section-inner section-narrow">
+    <div class="section-head">
+      <div class="section-num">07 — CONTACT</div>
+      <h2>가벼운 한 줄로 시작하세요</h2>
+      <p class="section-sub">강연·콘텐츠·자문 의뢰, 협업 제안, 단순 질문 — 모두 환영합니다.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-row">
+        <div class="ct-lbl">이메일</div>
+        <div class="ct-val"><a href="mailto:breeze0813@gmail.com">breeze0813@gmail.com</a></div>
+      </div>
+      <div class="contact-row">
+        <div class="ct-lbl">학원</div>
+        <div class="ct-val">T-Point Edu (강동구 고덕동 고덕그라시움 상가)</div>
+      </div>
+      <div class="contact-row">
+        <div class="ct-lbl">인스타</div>
+        <div class="ct-val"><a href="https://instagram.com/tpointedu" target="_blank" rel="noopener">@tpointedu</a></div>
+      </div>
+      <div class="contact-row">
+        <div class="ct-lbl">네이버 블로그</div>
+        <div class="ct-val"><a href="https://blog.naver.com/breeze0813" target="_blank" rel="noopener">blog.naver.com/breeze0813</a></div>
+      </div>
+    </div>
+    <p class="contact-foot">
+      24시간 안에 답변드립니다.<br>
+      <span style="color:rgba(255,255,255,0.55); font-size:13px;">— 학원장 동료의 추천·소개는 언제든 환영합니다.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="sig">한국 교육 현장에 진짜 쓰이는 AI 사용법.</div>
+  <div>— 엄지희 · T-Point Edu</div>
+  <div class="copy">© 2026 Eom Jihee. All content created and curated by the operator.</div>
+</footer>
+
+</body>
+</html>

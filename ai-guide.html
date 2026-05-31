@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>학원장을 위한 AI 자동화 기본 세팅 가이드 — 엄지희</title>
+<meta name="description" content="현직 학원장이자 학부모인 엄지희가 직접 검증한, 한국 교육 현장에 진짜 쓰이는 AI 사용법.">
+<meta property="og:title" content="학원장을 위한 AI 자동화 기본 세팅 가이드">
+<meta property="og:description" content="ChatGPT는 잘 쓰고 계시죠? 다음 단계 — 매번 똑같이 반복하는 일을 AI에게 맡기는 방법.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1F3864;
+    --navy-soft: #E8EEF5;
+    --accent: #C57B57;
+    --accent-soft: #F5E9DF;
+    --bg: #FAF7F2;
+    --white: #FFFFFF;
+    --dark: #2A2A2A;
+    --grey: #777777;
+    --grey-light: #BBBBBB;
+    --line: #E5E0D8;
+    --shadow: 0 2px 12px rgba(31, 56, 100, 0.06);
+    --shadow-lg: 0 8px 32px rgba(31, 56, 100, 0.1);
+    --radius: 12px;
+    --radius-sm: 6px;
+    --max-width: 760px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--dark);
+    background: var(--bg);
+    line-height: 1.7;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ===== TOP NAV ===== */
+  .topnav {
+    position: sticky;
+    top: 0;
+    background: rgba(250, 247, 242, 0.92);
+    backdrop-filter: saturate(180%) blur(12px);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
+    border-bottom: 1px solid var(--line);
+    z-index: 100;
+    padding: 12px 0;
+  }
+  .topnav-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+  .topnav-brand {
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 14px;
+    letter-spacing: 0.5px;
+  }
+  .topnav-brand .accent { color: var(--accent); }
+  .topnav-print {
+    background: var(--white);
+    border: 1px solid var(--line);
+    color: var(--grey);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.15s ease;
+  }
+  .topnav-print:hover {
+    background: var(--navy);
+    color: var(--white);
+    border-color: var(--navy);
+  }
+
+  /* ===== CONTAINER ===== */
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    padding: 80px 24px 60px;
+    text-align: center;
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+  .hero-eyebrow {
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+  }
+  .hero-sub {
+    color: var(--grey);
+    font-size: 18px;
+    margin-bottom: 14px;
+    font-weight: 400;
+  }
+  .hero-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(32px, 7vw, 48px);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.25;
+    margin-bottom: 36px;
+    letter-spacing: -0.02em;
+  }
+  .hero-quote {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(18px, 3.5vw, 22px);
+    color: var(--dark);
+    font-style: italic;
+    margin: 28px 0 14px;
+    font-weight: 400;
+  }
+  .hero-body {
+    color: var(--dark);
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+  .hero-meta {
+    margin-top: 48px;
+    color: var(--grey);
+    font-size: 14px;
+    line-height: 1.9;
+  }
+  .hero-meta strong {
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 16px;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* ===== SECTION ===== */
+  section {
+    padding: 60px 0;
+    border-top: 1px solid var(--line);
+    page-break-inside: avoid;
+  }
+  section:first-of-type { border-top: none; }
+  .section-num {
+    display: inline-block;
+    font-family: 'Noto Serif KR', serif;
+    color: var(--accent);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+  h2 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(26px, 5vw, 34px);
+    color: var(--navy);
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+  }
+  .section-lead {
+    color: var(--grey);
+    font-size: 15px;
+    margin-bottom: 36px;
+  }
+  h3 {
+    font-size: 18px;
+    color: var(--navy);
+    font-weight: 700;
+    margin: 36px 0 14px;
+  }
+  h3.accent { color: var(--accent); }
+  h4 {
+    font-size: 16px;
+    color: var(--dark);
+    font-weight: 700;
+    margin: 24px 0 10px;
+  }
+  p { margin-bottom: 14px; font-size: 16px; }
+  ul, ol { margin: 12px 0 18px 1.4em; }
+  li { margin-bottom: 8px; font-size: 16px; line-height: 1.7; }
+
+  /* ===== TABLE ===== */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 20px 0 28px;
+    border-radius: var(--radius);
+    background: var(--white);
+    box-shadow: var(--shadow);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14.5px;
+  }
+  th, td {
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  th {
+    background: var(--navy);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 13.5px;
+    letter-spacing: 0.3px;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: var(--bg); }
+
+  /* ===== QUOTE ===== */
+  .quote {
+    background: var(--accent-soft);
+    border-left: 4px solid var(--accent);
+    padding: 22px 28px;
+    margin: 28px 0;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-family: 'Noto Serif KR', serif;
+    font-style: italic;
+    color: var(--navy);
+    font-size: 17px;
+    line-height: 1.7;
+  }
+  .quote.navy {
+    background: var(--navy-soft);
+    border-left-color: var(--navy);
+  }
+
+  /* ===== STEP BOX ===== */
+  .step {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 28px 28px 24px;
+    margin: 20px 0;
+    box-shadow: var(--shadow);
+    position: relative;
+  }
+  .step-num {
+    position: absolute;
+    top: -14px;
+    left: 24px;
+    background: var(--accent);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 13px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    letter-spacing: 1px;
+  }
+  .step h3 { margin-top: 8px; }
+  .step .step-time {
+    color: var(--grey);
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  /* ===== CARD GRID ===== */
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin: 24px 0;
+  }
+  @media (min-width: 640px) {
+    .card-grid { grid-template-columns: 1fr 1fr; }
+  }
+  .card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+  }
+  .card-label {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  .card h4 {
+    font-size: 18px;
+    color: var(--navy);
+    margin: 0 0 12px;
+  }
+  .card p {
+    font-size: 14.5px;
+    color: var(--dark);
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+  .card .strength {
+    color: var(--navy);
+    font-weight: 700;
+  }
+  .card .weakness {
+    color: var(--grey);
+  }
+
+  /* ===== CHECKLIST ===== */
+  .checklist {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 28px;
+    margin: 28px 0;
+    box-shadow: var(--shadow);
+  }
+  .checklist-title {
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  .checklist-sub {
+    color: var(--grey);
+    font-size: 13.5px;
+    margin-bottom: 18px;
+  }
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    cursor: pointer;
+    user-select: none;
+    border-bottom: 1px dashed var(--line);
+  }
+  .check-item:last-child { border-bottom: none; }
+  .check-item input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--grey-light);
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    cursor: pointer;
+    position: relative;
+    background: var(--white);
+    transition: all 0.15s ease;
+  }
+  .check-item input[type="checkbox"]:checked {
+    background: var(--navy);
+    border-color: var(--navy);
+  }
+  .check-item input[type="checkbox"]:checked::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    width: 5px;
+    height: 9px;
+    border: solid var(--white);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  .check-item label {
+    cursor: pointer;
+    font-size: 15px;
+    color: var(--dark);
+    line-height: 1.6;
+    flex: 1;
+  }
+  .check-result {
+    margin-top: 24px;
+    padding: 16px 20px;
+    background: var(--navy-soft);
+    border-radius: var(--radius-sm);
+    text-align: center;
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 15px;
+  }
+
+  /* ===== ROADMAP STAGES ===== */
+  .stages {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin: 28px 0;
+  }
+  .stage {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    box-shadow: var(--shadow);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 18px;
+    align-items: start;
+  }
+  .stage-badge {
+    background: var(--navy);
+    color: var(--white);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .stage.now .stage-badge { background: var(--accent); }
+  .stage h4 {
+    margin: 0 0 4px;
+    font-size: 17px;
+    color: var(--navy);
+  }
+  .stage .stage-meta {
+    color: var(--accent);
+    font-size: 12.5px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+  }
+  .stage p {
+    margin: 0;
+    font-size: 14.5px;
+    color: var(--dark);
+    line-height: 1.7;
+  }
+
+  /* ===== CTA ===== */
+  .cta-box {
+    background: var(--navy);
+    color: var(--white);
+    border-radius: var(--radius);
+    padding: 36px 32px;
+    margin: 36px 0;
+    text-align: center;
+  }
+  .cta-box h3 {
+    color: var(--white);
+    margin: 0 0 12px;
+    font-size: 22px;
+  }
+  .cta-box p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 15px;
+    margin: 0;
+  }
+  .cta-box .quote-text {
+    font-family: 'Noto Serif KR', serif;
+    font-style: italic;
+    color: var(--white);
+    font-size: 18px;
+    line-height: 1.7;
+    margin-top: 14px;
+  }
+
+  /* ===== CONTACT ===== */
+  .contact-list {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    box-shadow: var(--shadow);
+    margin: 20px 0;
+  }
+  .contact-list dl {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 14px 20px;
+    margin: 0;
+  }
+  .contact-list dt {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .contact-list dd {
+    margin: 0;
+    color: var(--dark);
+    font-size: 15px;
+  }
+  .contact-list a {
+    color: var(--navy);
+    text-decoration: none;
+    border-bottom: 1px solid var(--navy-soft);
+  }
+  .contact-list a:hover { border-bottom-color: var(--navy); }
+
+  /* ===== FOOTER ===== */
+  footer {
+    padding: 60px 24px 80px;
+    text-align: center;
+    color: var(--grey);
+    font-size: 13px;
+    border-top: 1px solid var(--line);
+    margin-top: 40px;
+  }
+  footer .sig {
+    font-family: 'Noto Serif KR', serif;
+    font-style: italic;
+    color: var(--navy);
+    font-size: 15px;
+    margin-bottom: 14px;
+  }
+
+  /* ===== SIGNALS LIST (with emphasis) ===== */
+  .signals {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin: 24px 0;
+    box-shadow: var(--shadow);
+  }
+  .signals h4 {
+    color: var(--accent);
+    margin-top: 0;
+    font-size: 16px;
+  }
+  .signals ul { margin: 12px 0 8px 0; padding-left: 22px; }
+  .signals li { font-size: 15px; margin-bottom: 10px; }
+  .signals-note {
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 15px;
+  }
+
+  /* ===== HIGHLIGHT ===== */
+  em.h { font-style: normal; color: var(--accent); font-weight: 700; }
+  strong.navy { color: var(--navy); }
+
+  /* ===== PRINT ===== */
+  @media print {
+    :root { --bg: #FFFFFF; --max-width: 100%; }
+    body { font-size: 11pt; line-height: 1.55; background: white; }
+    .topnav, .topnav-print, .hero-meta, footer .sig + p { display: none !important; }
+    .hero { padding: 24px 0 16px; }
+    .hero-title { font-size: 24pt; margin-bottom: 12pt; }
+    .hero-quote { font-size: 13pt; margin: 14pt 0 8pt; }
+    .hero-body { font-size: 11pt; }
+    section { padding: 18pt 0; page-break-before: always; border-top: none; }
+    section:first-of-type { page-break-before: auto; }
+    h2 { font-size: 18pt; }
+    h3 { font-size: 13pt; }
+    p, li, td { font-size: 10.5pt; }
+    .step, .card, .checklist, .stage, .contact-list, .signals, .table-wrap {
+      box-shadow: none;
+      border: 1px solid #DDD;
+      page-break-inside: avoid;
+    }
+    .cta-box { background: #F0F4F9; color: var(--navy); border: 2px solid var(--navy); }
+    .cta-box h3, .cta-box .quote-text { color: var(--navy); }
+    .cta-box p { color: var(--dark); }
+    a { color: var(--navy); text-decoration: none; }
+    .check-item { page-break-inside: avoid; }
+    .check-item input[type="checkbox"] { border: 1.5px solid #555; }
+  }
+
+  @media (max-width: 480px) {
+    .container, .topnav-inner { padding: 0 18px; }
+    .hero { padding: 56px 18px 40px; }
+    section { padding: 44px 0; }
+    .step, .checklist, .card, .contact-list, .signals { padding: 20px; }
+    .cta-box { padding: 28px 22px; }
+    .contact-list dl { grid-template-columns: 70px 1fr; gap: 10px 14px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== TOP NAV ===== -->
+<nav class="topnav">
+  <div class="topnav-inner">
+    <div class="topnav-brand">T-POINT EDU <span class="accent">·</span> AI EDUCATION</div>
+    <button class="topnav-print" onclick="window.print()">인쇄하기</button>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="hero-eyebrow">학원장을 위한</div>
+  <div class="hero-sub">— 6/11 학원장 세미나 자료 —</div>
+  <h1 class="hero-title">AI 자동화<br>기본 세팅 가이드</h1>
+  <div class="hero-quote">"ChatGPT는 잘 쓰고 계시죠?"</div>
+  <p class="hero-body">
+    다음 단계는 — 매번 똑같이 반복하는 일을 AI에게 <em class="h">맡기는</em> 것입니다.<br>
+    현직 학원장이 1년간 직접 살아본 사람의 시각으로 정리합니다.
+  </p>
+  <div class="hero-meta">
+    <strong>엄지희</strong>
+    T-Point Edu 학원장 · 학부모<br>
+    2026년 6월 11일
+  </div>
+</header>
+
+<!-- ===== 1. AI 시대 변천 ===== -->
+<section>
+  <div class="container">
+    <div class="section-num">01 — TIMELINE</div>
+    <h2>AI 사용은 진화해왔습니다</h2>
+    <p class="section-lead">학원장이 AI를 쓰는 방식도 시대가 있습니다. 우리는 지금 어디에 있을까요?</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>시대</th><th>특징</th><th>예시</th><th>현재 위치</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong class="navy">1. 질문 시대</strong></td>
+            <td>정보 검색·요약·번역. 결과는 <em class="h">읽고 사람이 처리</em></td>
+            <td>검색·번역</td>
+            <td style="color:var(--grey)">이미 통과</td>
+          </tr>
+          <tr>
+            <td><strong class="navy">2. 프롬프트 시대</strong></td>
+            <td>AI에게 <em class="h">질문해서</em> 글·문서 초안 받기. 매번 새로 설명</td>
+            <td>ChatGPT·Claude로 블로그 초안·답변</td>
+            <td style="color:var(--accent); font-weight:700">대부분 학원장이 여기</td>
+          </tr>
+          <tr>
+            <td><strong class="navy">3. 에이전트 시대</strong></td>
+            <td>AI가 <em class="h">학원의 일을 기억하고 반복 작업을 통째로 처리</em></td>
+            <td>급여 자동화·보고서 자동 생성·학원 도구 직접 제작</td>
+            <td style="color:var(--navy); font-weight:700">다음 단계</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="quote">
+      "같은 질문 매번 반복하시나요? 같은 보고서 매주 또 만드시나요?<br>
+      그게 사실은 <em class="h">AI에게 맡길 수 있는 일</em>들입니다."
+    </div>
+
+    <div class="signals">
+      <h4>프롬프트 시대 → 에이전트 시대로 가는 신호</h4>
+      <ul>
+        <li>같은 학원 정보를 <em class="h">AI에게 매번 새로 설명</em>하고 있다</li>
+        <li>매월·매주 <em class="h">반복되는 행정 업무</em>가 있다 (급여·수강료·보고서·정산)</li>
+        <li>ChatGPT 결과를 받아서 <em class="h">사람 손으로 다시 정리</em>하고 있다</li>
+        <li>AI 도구를 여러 개 <em class="h">왔다 갔다</em> 하면서 일하고 있다</li>
+      </ul>
+      <div class="signals-note">→ 이 중 2개 이상 해당되면, 에이전트 시대로 넘어갈 준비가 된 것입니다.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 2. 자동화 5단계 ===== -->
+<section>
+  <div class="container">
+    <div class="section-num">02 — FIRST 30 MIN</div>
+    <h2>자동화 기본 세팅 5단계<br>— 첫 30분</h2>
+    <p class="section-lead">이 5단계는 <em class="h">어떤 학원에서든</em> 첫 30분 안에 적용 가능합니다.</p>
+
+    <div class="step">
+      <div class="step-num">STEP 1</div>
+      <h3>반복 업무 1가지 종이에 적기 <span class="step-time">— 5분</span></h3>
+      <p>매월·매주 반복되는 행정 업무 1가지를 종이에 적습니다.</p>
+      <p style="color:var(--grey); font-size:14.5px;">예: 급여 산정 / 수강료 미납 안내 / 학부모 답변 / 학습 보고서 / 출석 정산</p>
+    </div>
+
+    <div class="step">
+      <div class="step-num">STEP 2</div>
+      <h3>학원 정보를 한 번 정리 <span class="step-time">— 10분</span></h3>
+      <p>AI에게 <em class="h">매번 학원을 새로 설명</em> 안 해도 되게, 학원 핵심 정보 5가지를 정리합니다.</p>
+      <ul>
+        <li>학원명·과목·학생 학년대</li>
+        <li>학원 운영 톤 (따뜻함·전문성·엄격함 등)</li>
+        <li>자주 쓰는 표현 / 피해야 할 표현</li>
+        <li>학원 운영 룰 (학원 룰북 같은 것)</li>
+        <li>최근 6개월 주요 이슈</li>
+      </ul>
+    </div>
+
+    <div class="step">
+      <div class="step-num">STEP 3</div>
+      <h3>AI에 한 번 저장 <span class="step-time">— 5분</span></h3>
+      <p>Claude Project 또는 ChatGPT Custom GPT에 위 정보를 <em class="h">시스템 프롬프트로 한 번 저장</em>합니다.</p>
+      <p style="color:var(--grey); font-size:14.5px;">이렇게 하면 다음부터 학원을 매번 설명할 필요 없습니다.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-num">STEP 4</div>
+      <h3>반복 업무를 AI에게 설명 <span class="step-time">— 5분</span></h3>
+      <p>STEP 1에서 적은 업무를 <em class="h">한 문장</em>으로 AI에게 설명합니다.</p>
+      <div class="quote">"이 일을 매번 반복하는데, 자동화하는 방법 알려주세요."</div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">STEP 5</div>
+      <h3>AI의 3단계 가이드 받기 <span class="step-time">— 5분</span></h3>
+      <p>AI가 <em class="h">물어보는 질문에 답</em>하시면, <em class="h">3단계 자동화 가이드</em>가 나옵니다.</p>
+    </div>
+
+    <div class="quote navy">
+      → 첫 30분 끝. 이제 매월 30분이 <em class="h">반나절</em>보다 더 적게 들어가는 길이 열렸습니다.
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3. AI 용어 + 도구 비교 ===== -->
+<section>
+  <div class="container">
+    <div class="section-num">03 — GLOSSARY & TOOLS</div>
+    <h2>학원장이 알아야 할 AI 용어</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th style="width:30%">용어</th><th>쉬운 설명</th></tr></thead>
+        <tbody>
+          <tr><td><strong class="navy">프롬프트</strong></td><td>AI에게 시키는 질문·지시문</td></tr>
+          <tr><td><strong class="navy">에이전트</strong></td><td>AI가 <em class="h">반복 작업을 알아서</em> 하는 도구</td></tr>
+          <tr><td><strong class="navy">LLM</strong></td><td>대화형 AI의 기반 (Claude·ChatGPT·Gemini 모두)</td></tr>
+          <tr><td><strong class="navy">프로젝트 / Custom GPT</strong></td><td>학원 정보를 <em class="h">한 번 저장</em>해서 매번 새로 설명 안 해도 되는 기능</td></tr>
+          <tr><td><strong class="navy">MCP</strong></td><td>AI가 <em class="h">학원 구글 드라이브·노션을 직접 읽도록</em> 연결하는 기술</td></tr>
+          <tr><td><strong class="navy">API</strong></td><td>다른 도구와 <em class="h">프로그램끼리 연결</em>하는 기술 (자동화의 기본)</td></tr>
+          <tr><td><strong class="navy">서버리스 함수</strong></td><td><em class="h">작은 자동화 코드</em>를 클라우드에 올려두는 것 (무료~월 수천원)</td></tr>
+          <tr><td><strong class="navy">RAG</strong></td><td>AI가 <em class="h">학원 자료를 참고해서</em> 답하게 하는 기술</td></tr>
+          <tr><td><strong class="navy">멀티모달</strong></td><td>AI가 <em class="h">글뿐 아니라 사진·표·PDF</em>도 읽고 처리</td></tr>
+          <tr><td><strong class="navy">에이전트 워크플로우</strong></td><td>AI가 <em class="h">여러 단계</em>를 알아서 처리하는 흐름</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-top:48px;">도구 비교 — 학원장이 자주 쓸 3개</h3>
+
+    <div class="card-grid" style="margin-top:20px;">
+      <div class="card">
+        <div class="card-label">CLAUDE</div>
+        <h4>Anthropic</h4>
+        <p class="strength">긴 문서 처리·코드 작성·분석에 강함, 안전·신중</p>
+        <p class="weakness">이미지 생성 X</p>
+        <p style="margin-top:12px; padding-top:12px; border-top:1px solid var(--line); color:var(--accent); font-weight:700;">
+          학원 추천: 보고서 작성, 자체 도구 제작, 회의록 분석
+        </p>
+      </div>
+      <div class="card">
+        <div class="card-label">CHATGPT</div>
+        <h4>OpenAI</h4>
+        <p class="strength">글쓰기·아이디어·이미지 생성 폭넓음</p>
+        <p class="weakness">긴 문서는 약함, 가끔 부정확</p>
+        <p style="margin-top:12px; padding-top:12px; border-top:1px solid var(--line); color:var(--accent); font-weight:700;">
+          학원 추천: 블로그·인스타·카드뉴스 콘텐츠 초안
+        </p>
+      </div>
+      <div class="card">
+        <div class="card-label">GEMINI</div>
+        <h4>Google</h4>
+        <p class="strength">구글 드라이브·문서·검색과 자연 연결</p>
+        <p class="weakness">한국어 응답 품질 변동</p>
+        <p style="margin-top:12px; padding-top:12px; border-top:1px solid var(--line); color:var(--accent); font-weight:700;">
+          학원 추천: 구글 도구 쓰는 학원의 자동화 연결
+        </p>
+      </div>
+    </div>
+    <p style="color:var(--grey); font-size:14px; margin-top:12px;">
+      → 한 가지로 시작하시되, 6개월 후엔 <em class="h">2개를 용도별로 분리</em> 사용 권장.
+    </p>
+  </div>
+</section>
+
+<!-- ===== 4. 자가 진단 + 4단계 로드맵 ===== -->
+<section>
+  <div class="container">
+    <div class="section-num">04 — DIAGNOSIS</div>
+    <h2>우리 학원은 지금 몇 단계?</h2>
+    <p class="section-lead">아래 4단계 중 우리 학원이 어디인지 점검해보세요.</p>
+
+    <div class="stages">
+      <div class="stage">
+        <div class="stage-badge">1</div>
+        <div>
+          <div class="stage-meta">STAGE 1</div>
+          <h4>ChatGPT 활용</h4>
+          <p>프롬프트로 일을 도와받음 (블로그·답변 초안). <strong class="navy">다음 단계로 가려면</strong> — 학원 정보를 한 번 저장 (Project·GPTs).</p>
+        </div>
+      </div>
+      <div class="stage now">
+        <div class="stage-badge">2</div>
+        <div>
+          <div class="stage-meta" style="color:var(--accent);">STAGE 2 — 오늘 강의</div>
+          <h4>반복 작업 위임</h4>
+          <p>매번 하던 일을 AI에게 맡김 (자동화 가이드 작성). <strong class="navy">다음 단계로 가려면</strong> — 시중 도구가 못 채우는 영역을 자체 제작.</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-badge">3</div>
+        <div>
+          <div class="stage-meta">STAGE 3</div>
+          <h4>학원 맞춤 도구 제작</h4>
+          <p>자체 시스템을 직접 만듦 (피드백 앱·보고서 자동화). <strong class="navy">다음 단계로 가려면</strong> — 학원 데이터를 AI가 직접 읽도록 연결.</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-badge">4</div>
+        <div>
+          <div class="stage-meta">STAGE 4</div>
+          <h4>데이터 기반 학원 운영</h4>
+          <p>AI가 <em class="h">의사결정 파트너</em>가 됨 (장기 추이 분석). 시리즈 다음 강의에서 깊게 다룰 예정.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="accent" style="margin-top:48px;">자가 진단 체크리스트</h3>
+    <p style="color:var(--grey); font-size:14.5px;">✓ 클릭으로 체크. 단계별 3개 이상이면 해당 단계 진입.</p>
+
+    <div class="checklist">
+      <div class="checklist-title">□ STAGE 1 신호</div>
+      <div class="checklist-sub">3개 이상이면 1단계</div>
+      <div class="check-item"><input type="checkbox" data-stage="1" id="s1-1"><label for="s1-1">학원 블로그·인스타 글 초안을 ChatGPT로 받아본 적 있다</label></div>
+      <div class="check-item"><input type="checkbox" data-stage="1" id="s1-2"><label for="s1-2">학부모 답변에 ChatGPT를 한두 번 활용한 적 있다</label></div>
+      <div class="check-item"><input type="checkbox" data-stage="1" id="s1-3"><label for="s1-3">AI 사용 중 <em class="h">매번 학원을 새로 설명</em>하고 있다</label></div>
+    </div>
+
+    <div class="checklist">
+      <div class="checklist-title">□ STAGE 2 신호</div>
+      <div class="checklist-sub">3개 이상이면 2단계 진입</div>
+      <div class="check-item"><input type="checkbox" data-stage="2" id="s2-1"><label for="s2-1">Project·Custom GPT에 학원 정보를 <em class="h">한 번 저장</em>했다</label></div>
+      <div class="check-item"><input type="checkbox" data-stage="2" id="s2-2"><label for="s2-2">반복 업무 중 <em class="h">1가지 이상</em>을 AI에 맡겨봤다</label></div>
+      <div class="check-item"><input type="checkbox" data-stage="2" id="s2-3"><label for="s2-3">AI 결과를 <em class="h">사람 검증 → 적용</em> 흐름으로 운영한다</label></div>
+    </div>
+
+    <div class="checklist">
+      <div class="checklist-title">□ STAGE 3 신호</div>
+      <div class="checklist-sub">3개 이상이면 3단계 진입</div>
+      <div class="check-item"><input type="checkbox" data-stage="3" id="s3-1"><label for="s3-1">학원 <em class="h">맞춤 도구·시스템</em>을 자체 제작했다 (또는 시도 중)</label></div>
+      <div class="check-item"><input type="checkbox" data-stage="3" id="s3-2"><label for="s3-2">AI가 <em class="h">학원 자료에 직접 접근</em>하도록 연결했다 (노션·구글 드라이브)</label></div>
+      <div class="check-item"><input type="checkbox" data-stage="3" id="s3-3"><label for="s3-3">강사·조교·학부모가 <em class="h">AI로 만든 도구</em>를 일상적으로 사용한다</label></div>
+    </div>
+
+    <div class="checklist">
+      <div class="checklist-title">□ STAGE 4 신호</div>
+      <div class="checklist-sub">3개 이상이면 4단계 진입</div>
+      <div class="check-item"><input type="checkbox" data-stage="4" id="s4-1"><label for="s4-1">학원 <em class="h">장기 데이터</em>(회의록·성적·상담 기록)를 AI에 분석시켜봤다</label></div>
+      <div class="check-item"><input type="checkbox" data-stage="4" id="s4-2"><label for="s4-2">AI 분석 결과로 <em class="h">학원 운영 의사결정</em>을 한 적 있다</label></div>
+      <div class="check-item"><input type="checkbox" data-stage="4" id="s4-3"><label for="s4-3">학생·강사·반의 <em class="h">추이·신호</em>를 AI가 잡아주고 있다</label></div>
+
+      <div class="check-result" id="check-result">체크하면 우리 학원 현재 단계가 표시됩니다</div>
+    </div>
+
+    <div class="quote navy" style="margin-top:32px;">
+      → 이 강의는 <em class="h">1단계 → 2단계 입문</em>을 다뤘습니다. 다음 강의에서 <em class="h">3·4단계</em>로 갑니다.
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. 시리즈 강의 + 소개 ===== -->
+<section>
+  <div class="container">
+    <div class="section-num">05 — SERIES</div>
+    <h2>앞으로의 시리즈 강의</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>단계</th><th>강의 주제</th><th>주요 다룰 내용</th><th>시기</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong class="navy">1단계</strong></td>
+            <td>ChatGPT 활용 입문</td>
+            <td>기본 활용 + Project 세팅</td>
+            <td style="color:var(--grey)">이전 단계</td>
+          </tr>
+          <tr style="background:var(--accent-soft);">
+            <td><strong style="color:var(--accent)">2단계</strong></td>
+            <td><strong>반복 작업 위임 — 오늘 강의</strong></td>
+            <td>자동화 가이드·페르소나 세팅</td>
+            <td style="color:var(--accent); font-weight:700">6/11 (오늘)</td>
+          </tr>
+          <tr>
+            <td><strong class="navy">3단계</strong></td>
+            <td>학원 맞춤 도구 제작</td>
+            <td>노션·앱·자체 시스템 제작 워크숍</td>
+            <td>7월 예정</td>
+          </tr>
+          <tr>
+            <td><strong class="navy">4단계</strong></td>
+            <td>데이터 기반 학원 운영</td>
+            <td>장기 데이터 분석·의사결정 AI 파트너</td>
+            <td>8월 예정</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cta-box">
+      <h3>관심 있으신 단계가 있으시면 알려주세요</h3>
+      <p>친한 원장님 모임·단톡방·교육 기관에 소개해주시면 정말 감사하겠습니다.</p>
+      <div class="quote-text">"동료가 동료를 가르치는 자리 — 그게 가장 오래갑니다."</div>
+    </div>
+
+    <h3>동료 원장님께 소개하실 때</h3>
+    <p style="color:var(--grey); font-size:14.5px;">이렇게 전해주시면 좋겠습니다:</p>
+    <div class="quote">
+      "한 원장님인데, AI를 학원에 <em class="h">직접 만들어 쓰는</em> 현직 학원장이에요. 이론이 아니라 본인 학원 사례 그대로 보여줘서, 우리도 따라할 수 있어요."
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6. 연락처 ===== -->
+<section>
+  <div class="container">
+    <div class="section-num">06 — CONTACT</div>
+    <h2>연락처</h2>
+    <p>강연·세미나·컨설팅·협업·단순 질문 — 모두 환영합니다.</p>
+
+    <div class="contact-list">
+      <dl>
+        <dt>이메일</dt>
+        <dd><a href="mailto:breeze0813@gmail.com">breeze0813@gmail.com</a></dd>
+        <dt>학원</dt>
+        <dd>T-Point Edu (강동구 고덕동)</dd>
+        <dt>인스타그램</dt>
+        <dd><a href="https://instagram.com/tpointedu" target="_blank" rel="noopener">@tpointedu</a></dd>
+        <dt>네이버 블로그</dt>
+        <dd><a href="https://blog.naver.com/breeze0813" target="_blank" rel="noopener">blog.naver.com/breeze0813</a></dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="sig">오늘 함께해주신 시간 감사합니다.</div>
+  <p>— 엄지희 드림 · T-Point Edu · 2026.06.11</p>
+</footer>
+
+<script>
+  // 자가 진단 결과 계산
+  const checkResult = document.getElementById('check-result');
+  const allChecks = document.querySelectorAll('.check-item input[type="checkbox"]');
+
+  function updateResult() {
+    const stageCounts = { 1: 0, 2: 0, 3: 0, 4: 0 };
+    allChecks.forEach(cb => {
+      if (cb.checked) stageCounts[cb.dataset.stage]++;
+    });
+
+    let currentStage = 0;
+    for (let i = 1; i <= 4; i++) {
+      if (stageCounts[i] >= 3) currentStage = i;
+    }
+
+    const stageNames = {
+      0: '아직 시작 단계 — 1단계부터 천천히 시작해보세요',
+      1: '✓ 현재 STAGE 1 — ChatGPT 활용 단계입니다',
+      2: '✓ 현재 STAGE 2 — 반복 작업 위임 단계입니다 (오늘 강의 자리)',
+      3: '✓ 현재 STAGE 3 — 학원 맞춤 도구 제작 단계입니다 (3단계 강의 추천)',
+      4: '✓ 현재 STAGE 4 — 데이터 기반 운영 단계입니다 (이미 앞서가는 중!)'
+    };
+
+    checkResult.textContent = stageNames[currentStage];
+
+    // 시각 강조
+    if (currentStage >= 2) {
+      checkResult.style.background = 'var(--accent-soft)';
+      checkResult.style.color = 'var(--accent)';
+    } else {
+      checkResult.style.background = 'var(--navy-soft)';
+      checkResult.style.color = 'var(--navy)';
+    }
+  }
+
+  allChecks.forEach(cb => cb.addEventListener('change', updateResult));
+</script>
+
+</body>
+</html>

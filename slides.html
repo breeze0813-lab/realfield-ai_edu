@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>6/11 학원장 세미나 — ChatGPT 다음 단계 | T-Point Edu 엄지희</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Serif+KR:wght@400;700;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.min.css">
+
+<style>
+  :root {
+    --navy: #1F3864;
+    --navy-deep: #14254A;
+    --navy-soft: #E8EEF5;
+    --accent: #C57B57;
+    --accent-soft: #F5E9DF;
+    --bg: #FAF7F2;
+    --white: #FFFFFF;
+    --dark: #2A2A2A;
+    --grey: #777777;
+    --grey-light: #BBBBBB;
+    --line: #E5E0D8;
+    --success: #2D6A4F;
+  }
+
+  /* ===== REVEAL OVERRIDES ===== */
+  .reveal {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 30px;
+    color: var(--dark);
+  }
+  .reveal .slides { text-align: left; }
+  .reveal section {
+    padding: 60px 80px;
+    background: var(--bg);
+    height: 100%;
+    box-sizing: border-box;
+  }
+  .reveal section.dark { background: var(--navy); color: var(--white); }
+  .reveal section.accent { background: var(--accent); color: var(--white); }
+  .reveal section.soft { background: var(--white); }
+
+  /* Reset all reveal styling */
+  .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+    color: var(--navy);
+    font-family: 'Noto Serif KR', serif;
+    text-transform: none;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.4em;
+    line-height: 1.25;
+    font-weight: 700;
+  }
+  .reveal.dark h1, .reveal section.dark h1,
+  .reveal.dark h2, .reveal section.dark h2,
+  .reveal.dark h3, .reveal section.dark h3 { color: var(--white); }
+  .reveal section.accent h1, .reveal section.accent h2,
+  .reveal section.accent h3 { color: var(--white); }
+
+  .reveal h1 { font-size: 2.2em; }
+  .reveal h2 { font-size: 1.6em; }
+  .reveal h3 { font-size: 1.2em; color: var(--accent); }
+  .reveal section.dark h3 { color: var(--accent-soft); }
+
+  .reveal p { margin-bottom: 0.6em; line-height: 1.65; }
+  .reveal ul, .reveal ol { display: block; margin: 0.8em 0 0.8em 1.2em; }
+  .reveal li { margin-bottom: 0.4em; line-height: 1.6; }
+
+  /* ===== EYEBROW ===== */
+  .eyebrow {
+    color: var(--accent);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.5em;
+    font-weight: 700;
+    letter-spacing: 4px;
+    margin-bottom: 18px;
+    display: block;
+  }
+  .reveal section.dark .eyebrow,
+  .reveal section.accent .eyebrow { color: var(--accent-soft); }
+
+  /* ===== HERO / TITLE SLIDE ===== */
+  .hero-slide {
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  .hero-slide h1 {
+    font-size: 2.8em;
+    margin-bottom: 0.4em;
+  }
+  .hero-slide .sub {
+    color: var(--grey);
+    font-size: 0.9em;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-style: normal;
+  }
+  .hero-slide .quote {
+    font-family: 'Noto Serif KR', serif;
+    font-style: italic;
+    color: var(--navy);
+    font-size: 1.1em;
+    margin-top: 1.2em;
+  }
+  .hero-slide .meta {
+    margin-top: 2em;
+    color: var(--grey);
+    font-size: 0.6em;
+    line-height: 1.7;
+  }
+  .hero-slide .meta strong {
+    color: var(--navy);
+    font-size: 1.2em;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* ===== BIG MESSAGE SLIDE ===== */
+  .big-msg {
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  .big-msg .big {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 2.2em;
+    color: var(--navy);
+    line-height: 1.35;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    max-width: 90%;
+  }
+  .big-msg .small {
+    margin-top: 1em;
+    color: var(--grey);
+    font-size: 0.7em;
+  }
+  .reveal section.dark .big-msg .big { color: var(--white); }
+  .reveal section.dark .big-msg .small { color: var(--accent-soft); }
+
+  /* ===== QUOTE ===== */
+  .quote-block {
+    background: var(--accent-soft);
+    border-left: 6px solid var(--accent);
+    padding: 22px 28px;
+    margin: 24px 0;
+    border-radius: 0 6px 6px 0;
+    font-family: 'Noto Serif KR', serif;
+    font-style: italic;
+    color: var(--navy);
+    font-size: 0.95em;
+    line-height: 1.65;
+  }
+  .reveal section.dark .quote-block {
+    background: rgba(245, 233, 223, 0.15);
+    color: var(--white);
+    border-left-color: var(--accent);
+  }
+
+  /* ===== TABLE ===== */
+  .reveal table {
+    margin: 18px 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    font-size: 0.7em;
+    background: var(--white);
+    box-shadow: 0 2px 12px rgba(31, 56, 100, 0.08);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .reveal table th, .reveal table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--line);
+    text-align: left;
+    vertical-align: top;
+  }
+  .reveal table th {
+    background: var(--navy);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 0.9em;
+    letter-spacing: 0.3px;
+  }
+  .reveal table tbody tr:last-child td { border-bottom: none; }
+  .reveal table tbody tr.highlight { background: var(--accent-soft); }
+  .reveal table tbody tr.highlight td { color: var(--navy); font-weight: 700; }
+
+  /* ===== CARD GRID ===== */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin: 20px 0;
+  }
+  .card-item {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 18px;
+    box-shadow: 0 2px 12px rgba(31, 56, 100, 0.08);
+    font-size: 0.72em;
+    line-height: 1.55;
+  }
+  .card-item .lbl {
+    color: var(--accent);
+    font-size: 0.75em;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+  .card-item h4 {
+    font-size: 1.1em;
+    color: var(--navy);
+    margin-bottom: 8px;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  .card-item p { margin: 0 0 6px; font-size: 0.95em; }
+
+  /* ===== STEP NUMBERS ===== */
+  .num-row {
+    display: flex;
+    gap: 24px;
+    margin: 20px 0;
+    align-items: stretch;
+  }
+  .num-item {
+    flex: 1;
+    background: var(--white);
+    border-radius: 10px;
+    padding: 18px;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(31, 56, 100, 0.08);
+  }
+  .num-item .n {
+    font-family: 'Noto Serif KR', serif;
+    color: var(--accent);
+    font-size: 2.5em;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .num-item .lbl {
+    font-size: 0.6em;
+    color: var(--grey);
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  /* ===== BIG NUMBER (Before/After) ===== */
+  .ba-row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 24px;
+    margin: 30px 0;
+  }
+  .ba-box {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 28px 20px;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(31, 56, 100, 0.08);
+  }
+  .ba-box.before {
+    border-top: 5px solid var(--grey-light);
+  }
+  .ba-box.after {
+    border-top: 5px solid var(--accent);
+  }
+  .ba-box .lbl {
+    color: var(--grey);
+    font-size: 0.55em;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+  }
+  .ba-box.after .lbl { color: var(--accent); }
+  .ba-box .val {
+    font-family: 'Noto Serif KR', serif;
+    color: var(--navy);
+    font-size: 2em;
+    font-weight: 700;
+    line-height: 1.15;
+  }
+  .ba-arrow {
+    color: var(--accent);
+    font-size: 2em;
+    font-weight: 700;
+  }
+
+  /* ===== PILL BADGE ===== */
+  .pill {
+    display: inline-block;
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 4px 14px;
+    border-radius: 999px;
+    font-size: 0.55em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+  }
+  .reveal section.dark .pill {
+    background: rgba(197, 123, 87, 0.25);
+    color: var(--accent-soft);
+  }
+
+  /* ===== TIMELINE (3-stage flow) ===== */
+  .timeline {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    gap: 14px;
+    align-items: stretch;
+    margin: 28px 0;
+  }
+  .t-stage {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 18px;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(31, 56, 100, 0.06);
+  }
+  .t-stage.now {
+    background: var(--accent);
+    color: var(--white);
+    transform: scale(1.05);
+  }
+  .t-stage .stg-num {
+    font-family: 'Noto Serif KR', serif;
+    color: var(--accent);
+    font-size: 1.6em;
+    font-weight: 900;
+  }
+  .t-stage.now .stg-num { color: var(--white); }
+  .t-stage h4 {
+    font-size: 0.95em;
+    color: var(--navy);
+    margin-bottom: 6px;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  .t-stage.now h4 { color: var(--white); }
+  .t-stage p {
+    font-size: 0.55em;
+    color: var(--grey);
+    margin: 0;
+    line-height: 1.5;
+  }
+  .t-stage.now p { color: var(--accent-soft); }
+  .t-arrow {
+    align-self: center;
+    color: var(--grey-light);
+    font-size: 1.4em;
+  }
+
+  /* ===== CALLOUT (for "코딩 못해도") ===== */
+  .callout {
+    background: var(--navy);
+    color: var(--white);
+    border-radius: 10px;
+    padding: 28px 32px;
+    margin: 24px 0;
+    font-size: 0.85em;
+    line-height: 1.65;
+  }
+  .callout .lead {
+    color: var(--accent-soft);
+    font-size: 0.85em;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+  .callout .big {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 1.4em;
+    line-height: 1.45;
+    margin-bottom: 12px;
+  }
+
+  /* ===== EMPHASIS ===== */
+  em.h { font-style: normal; color: var(--accent); font-weight: 700; }
+  .reveal section.dark em.h { color: var(--accent-soft); }
+  .reveal section.accent em.h { color: var(--white); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+  strong.navy { color: var(--navy); }
+  .reveal section.dark strong.navy { color: var(--white); }
+
+  /* ===== TWO-COL LAYOUT ===== */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 20px 0;
+  }
+
+  /* ===== PLACEHOLDER for screenshots ===== */
+  .ph-img {
+    background: var(--navy-soft);
+    border: 2px dashed var(--navy);
+    border-radius: 8px;
+    color: var(--navy);
+    padding: 40px 24px;
+    text-align: center;
+    margin: 16px 0;
+    font-size: 0.7em;
+    font-style: italic;
+  }
+  .ph-img .icn {
+    font-size: 2em;
+    margin-bottom: 8px;
+  }
+
+  /* ===== URL BIG ===== */
+  .url-big {
+    background: var(--white);
+    border: 3px solid var(--accent);
+    border-radius: 12px;
+    padding: 28px 36px;
+    text-align: center;
+    margin: 28px auto;
+    max-width: 80%;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  .url-big .url {
+    font-size: 1.4em;
+    color: var(--navy);
+    font-weight: 700;
+    letter-spacing: 1px;
+    word-break: break-all;
+  }
+  .url-big .label {
+    color: var(--accent);
+    font-size: 0.55em;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+
+  /* ===== CONTROLS / PROGRESS ===== */
+  .reveal .progress {
+    color: var(--accent);
+    height: 3px;
+  }
+  .reveal .controls {
+    color: var(--navy);
+  }
+  .reveal .slide-number {
+    color: var(--grey);
+    background: rgba(250, 247, 242, 0.85);
+    padding: 4px 10px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 13px;
+  }
+
+  /* ===== PRINT (PDF export via ?print-pdf) ===== */
+  @media print {
+    .reveal section { padding: 30px 50px; }
+    .reveal section.dark, .reveal section.accent {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="reveal">
+<div class="slides">
+
+<!-- ============ 1. TITLE ============ -->
+<section class="hero-slide">
+  <span class="eyebrow">T-POINT EDU · 학원장 세미나</span>
+  <h1>ChatGPT는<br>잘 쓰고 계시죠?</h1>
+  <p class="quote">— 그 다음 단계 이야기를 해보려고 합니다.</p>
+  <div class="meta">
+    <strong>엄지희</strong>
+    T-Point Edu 학원장 · 초4 학부모<br>
+    2026년 6월 11일
+  </div>
+  <aside class="notes">데뷔 무대. 마케팅 톤 빼고 동료끼리 솔직하게. 완벽함 압박을 미리 풀어내고 시작.</aside>
+</section>
+
+<!-- ============ 2. OPENING (솔직한 데뷔 인사) ============ -->
+<section class="big-msg">
+  <div>
+    <span class="eyebrow">오프닝</span>
+    <p class="big">동료 원장님들 앞이라<br><em class="h">강연자 톤</em>은 빼고 가겠습니다.</p>
+    <p class="small">마케팅 멘트 없이 — 잘된 것, 실패한 것, 아직 해결 못한 것 모두 동료끼리 솔직하게.</p>
+  </div>
+  <aside class="notes">3분. 친분 모드 톤. 완벽함 압박을 미리 풀어내고 시작. 후기·추천 받기의 첫 단추.</aside>
+</section>
+
+<!-- ============ 3. 개요 - 알아야 할 용어 ============ -->
+<section>
+  <span class="eyebrow">개요 · 용어 정리</span>
+  <h2>오늘 알아야 할 5가지 용어</h2>
+  <table>
+    <thead><tr><th style="width:32%">용어</th><th>쉬운 설명</th></tr></thead>
+    <tbody>
+      <tr><td><strong class="navy">프롬프트</strong></td><td>AI에게 시키는 질문·지시문</td></tr>
+      <tr><td><strong class="navy">프로젝트 / Custom GPT</strong></td><td>학원 정보를 <em class="h">한 번 저장</em>해서 매번 새로 설명 안 해도 되는 기능</td></tr>
+      <tr><td><strong class="navy">에이전트</strong></td><td>AI가 <em class="h">반복 작업을 알아서</em> 하는 도구</td></tr>
+      <tr><td><strong class="navy">MCP</strong></td><td>AI가 <em class="h">학원 자료를 직접 읽도록</em> 연결하는 기술</td></tr>
+      <tr><td><strong class="navy">에이전트 워크플로우</strong></td><td>AI가 <em class="h">여러 단계</em>를 알아서 처리하는 흐름</td></tr>
+    </tbody>
+  </table>
+  <aside class="notes">7분. 어려운 용어는 풀어서. 청중이 *프롬프트형*만 쓰는 수준이므로 *에이전트·MCP* 단어 자체가 새롭다는 걸 의식.</aside>
+</section>
+
+<!-- ============ 4. AI 활용 5가지 범주 ============ -->
+<section>
+  <span class="eyebrow">AI는 이런 일을 합니다</span>
+  <h2>학원에서 쓰는 5가지 범주</h2>
+  <table>
+    <thead><tr><th style="width:25%">범주</th><th style="width:35%">한 줄</th><th>예시 도구</th></tr></thead>
+    <tbody>
+      <tr><td>정보 검색·요약</td><td>긴 자료를 빨리 본다</td><td>Perplexity, Gemini</td></tr>
+      <tr><td>글쓰기 보조</td><td>초안을 받는다</td><td>ChatGPT, Claude</td></tr>
+      <tr><td>데이터 정리·분석</td><td>표·숫자를 정리한다</td><td>Claude, Excel Copilot</td></tr>
+      <tr class="highlight"><td><strong>반복 작업 자동화</strong></td><td><strong>매번 하는 일을 맡긴다</strong></td><td><strong>Claude Project, GPTs</strong></td></tr>
+      <tr class="highlight"><td><strong>시스템 구축</strong></td><td><strong>학원 도구를 만든다</strong></td><td><strong>Claude Code, 노션 자동화</strong></td></tr>
+    </tbody>
+  </table>
+  <p style="margin-top:14px; color:var(--grey); font-size:0.7em;">→ 위 3개는 청중이 이미 함. <em class="h">아래 2개</em>가 다음 단계.</p>
+  <aside class="notes">백화점식 도구 소개로 흐르지 않도록 - 범주만 짚고 빠르게 다음.</aside>
+</section>
+
+<!-- ============ 5. AI 시대 변천 ============ -->
+<section>
+  <span class="eyebrow">FLOW · 시대 변천</span>
+  <h2>AI 사용은 진화해왔습니다</h2>
+  <div class="timeline">
+    <div class="t-stage">
+      <div class="stg-num">1</div>
+      <h4>질문 시대</h4>
+      <p>정보 검색·번역</p>
+    </div>
+    <div class="t-arrow">→</div>
+    <div class="t-stage now">
+      <div class="stg-num">2</div>
+      <h4>프롬프트 시대</h4>
+      <p>ChatGPT로 글 초안 받기</p>
+    </div>
+    <div class="t-arrow">→</div>
+    <div class="t-stage">
+      <div class="stg-num">3</div>
+      <h4>에이전트 시대</h4>
+      <p>AI가 반복 작업 처리</p>
+    </div>
+  </div>
+  <p style="margin-top:20px; text-align:center; color:var(--accent); font-weight:700;">대부분 학원장이 지금 <em class="h">2단계</em>에 있습니다.</p>
+  <aside class="notes">12분. 청중 본인 위치 인식이 목표. "여기 있죠?" 한 번 확인하고 진행.</aside>
+</section>
+
+<!-- ============ 6. 우리는 어디? 큰 메시지 ============ -->
+<section class="dark">
+  <div class="big-msg">
+    <div>
+      <span class="eyebrow">전환점</span>
+      <p class="big">매번 같은 질문<br>또 하고 계시죠?</p>
+      <p class="small">매주 같은 보고서 또 만드시잖아요. — 그게 AI에게 맡길 수 있는 일들입니다.</p>
+    </div>
+  </div>
+  <aside class="notes">15분. 청중과 눈 마주치며. 동의의 침묵을 활용.</aside>
+</section>
+
+<!-- ============ 7. 에이전트 시대 사례 #2 (30초 등장) ============ -->
+<section>
+  <span class="eyebrow">에이전트 시대 사례 · 1</span>
+  <h2>학원 도구를 <em class="h">직접</em> 만들기</h2>
+  <div class="two-col">
+    <div>
+      <p>저는 <em class="h">결제·출결</em>은 기존 시중 도구(랠리즈)를 유지하고,<br>
+      <em class="h">피드백·상담</em> 영역만 <em class="h">직접 앱으로</em> 만들었습니다.</p>
+      <p style="color:var(--grey); font-size:0.8em;">학생·강사·학부모 화면까지. 코딩은 거의 안 합니다. AI가 코드를 짭니다.</p>
+      <div class="quote-block">
+        이게 시리즈 <em class="h">3단계 — 학원 맞춤 도구 제작</em> 영역입니다. (다음 강의 예고)
+      </div>
+    </div>
+    <div class="ph-img">
+      <div class="icn">📱</div>
+      자체 앱 화면 캡처<br>
+      (D-day 전 익명 처리 후 삽입)
+    </div>
+  </div>
+  <aside class="notes">17분. 30초 짧게. 다음 강의 미끼 + 본 강의 메시지(부분 자체 제작) 한 번 더 박기.</aside>
+</section>
+
+<!-- ============ 8. 에이전트 시대 사례 #5 (30초 등장) ============ -->
+<section>
+  <span class="eyebrow">에이전트 시대 사례 · 2</span>
+  <h2>1년치 회의록을 <em class="h">AI가 통째로 분석</em></h2>
+  <p>학원의 강사 회의록을 <em class="h">1년치, 2년치 단위</em>로 AI에게 분석시킵니다.<br>
+  학생들의 변화 추이, 강사들의 변화 추이를 긴 기간에서 봅니다.</p>
+  <div class="quote-block">
+    솔직히 — 아직 시작 단계입니다. 매주 분석이 정착된 게 아니라, 해마다 한 번 큰 그림을 보는 정도. 시리즈 <em class="h">4단계 — 데이터 기반 학원 운영</em>에서 깊게 다룰 예정입니다.
+  </div>
+  <aside class="notes">18분. 솔직한 인정이 더 강한 신뢰. 과장하지 않음.</aside>
+</section>
+
+<!-- ============ 9. 학원장 페인포인트 매트릭스 ============ -->
+<section>
+  <span class="eyebrow">NEEDS · 학원장의 진짜 고민</span>
+  <h2>학원장은 다 알고 다 관여하는 사람</h2>
+  <table>
+    <thead><tr><th>영역</th><th>매월·매주 반복</th></tr></thead>
+    <tbody>
+      <tr><td>인사·인건비</td><td>강사 채용·관리·급여 정산</td></tr>
+      <tr><td>학생·학부모 관리</td><td>상담·피드백·이탈 방지·신규 모집</td></tr>
+      <tr><td>학습 관리</td><td>출결·진도·성적·교재</td></tr>
+      <tr><td>마케팅·홍보</td><td>블로그·인스타·전단·설명회</td></tr>
+      <tr><td>재무·세무·회계</td><td>수강료·정산·세금</td></tr>
+      <tr><td>행정·운영</td><td>시설·문서·일정·법규</td></tr>
+      <tr class="highlight"><td><strong>원장 본인의 시간·번아웃</strong></td><td><strong>의논할 사람 없음</strong></td></tr>
+    </tbody>
+  </table>
+  <p style="margin-top:14px; color:var(--accent); font-weight:700;">→ 그래서 <em class="h">반복은 AI에게 맡기고 판단에 시간을 쓰는 것</em>이 절실합니다.</p>
+  <aside class="notes">23분. 청중 본인 페인포인트 인식. 마지막 줄 강조.</aside>
+</section>
+
+<!-- ============ 10. 핵심 메시지 (큰 메시지) ============ -->
+<section class="accent">
+  <div class="big-msg">
+    <div>
+      <span class="eyebrow">CORE</span>
+      <p class="big">반복은 AI에게,<br><em class="h">판단은 사람에게</em>.</p>
+      <p class="small" style="color:rgba(255,255,255,0.9)">— 자동화의 진짜 정의.</p>
+    </div>
+  </div>
+  <aside class="notes">25분. 5초 침묵. 청중 머리에 박히는 시간.</aside>
+</section>
+
+<!-- ============ 11. PROOF #1 - INTRO ============ -->
+<section>
+  <span class="pill">PROOF · 사례 1</span>
+  <h2>매월 <em class="h">반나절</em>이 사라지던 급여날<br><span style="color:var(--accent);">→ 이제 30분이면 끝납니다</span></h2>
+  <p style="color:var(--grey); margin-top:20px;">정량 효과가 가장 명확한 사례부터. 모든 학원장이 매월 겪는 일.</p>
+  <aside class="notes">27분. 청중 즉시 공감 사례부터 시작.</aside>
+</section>
+
+<!-- ============ 12. PROOF #1 - Before ============ -->
+<section>
+  <span class="eyebrow">사례 1 · BEFORE</span>
+  <h2>매월 25일 — <em class="h">반나절</em>이 사라지는 날</h2>
+  <table>
+    <thead><tr><th style="width:8%">#</th><th style="width:55%">단계</th><th>부담</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>종이 출퇴근 장부 → 엑셀 수기 입력</td><td>조교 부분만 <em class="h">1시간 이상</em></td></tr>
+      <tr><td>2</td><td>엑셀 수식으로 시간·주휴수당 정리</td><td>오류 시 처음부터</td></tr>
+      <tr><td>3</td><td>비율제 강사 — 학생 수강료 일일이 확인·대조</td><td>가장 손이 많이 감</td></tr>
+      <tr><td>4</td><td>4대보험·세금 공제 정리</td><td>매월 동일 반복</td></tr>
+      <tr><td>5</td><td>명세서 작성·발행</td><td>강사 수만큼 반복</td></tr>
+    </tbody>
+  </table>
+  <p style="margin-top:16px; color:var(--accent); font-weight:700; font-size:0.9em;">→ 합계 <em class="h">최소 3~4시간 = 반나절</em>. 진짜 손해는 시간이 아니라, 그 반나절에 못한 다른 일.</p>
+  <aside class="notes">29분. 청중이 본인 학원 풍경 떠올리도록.</aside>
+</section>
+
+<!-- ============ 13. PROOF #1 - Action ============ -->
+<section>
+  <span class="eyebrow">사례 1 · ACTION</span>
+  <h2>Python 자동화 도구 하나 —<br><em class="h">AI(Claude)와 같이</em> 만들었습니다</h2>
+  <div class="two-col">
+    <div>
+      <p style="font-size:0.85em; line-height:1.7;">학원장이 직접 코딩한 게 아닙니다.</p>
+      <ol style="font-size:0.85em;">
+        <li>원하는 흐름을 <em class="h">말로</em> 설명</li>
+        <li>AI가 코드 작성</li>
+        <li>문제 생기면 <em class="h">다시 말로</em> 설명 → 수정</li>
+        <li>완성된 도구는 매월 1회 클릭 실행</li>
+      </ol>
+    </div>
+    <div class="ph-img">
+      <div class="icn">💻</div>
+      Claude와 코드 만드는 화면<br>
+      (D-day 전 익명 처리 캡처 삽입)
+    </div>
+  </div>
+  <p style="color:var(--grey); margin-top:14px;"><strong class="navy">입력</strong>: 구글 시트 + 수강료 파일 / <strong class="navy">출력</strong>: 명세서 PDF + 누적 관리대장</p>
+  <aside class="notes">32분. "코딩 못해도" 메시지가 청중 거부감 풀어주는 핵심.</aside>
+</section>
+
+<!-- ============ 14. PROOF #1 - Result (Big Number) ============ -->
+<section class="soft">
+  <span class="eyebrow">사례 1 · RESULT</span>
+  <h2>10배 시간 감축</h2>
+  <div class="ba-row">
+    <div class="ba-box before">
+      <div class="lbl">BEFORE</div>
+      <div class="val">3~4시간<br><span style="font-size:0.55em; color:var(--grey);">반나절</span></div>
+    </div>
+    <div class="ba-arrow">→</div>
+    <div class="ba-box after">
+      <div class="lbl">AFTER</div>
+      <div class="val">30분<br><span style="font-size:0.55em; color:var(--accent);">검증·보정·발행</span></div>
+    </div>
+  </div>
+  <div class="quote-block">
+    시간이 줄어든 그 반나절에 학원장은 <em class="h">생각하는 일</em>을 합니다. — 상담, 수업 준비, 다음 학기 비전.
+  </div>
+  <aside class="notes">34분. 숫자 자체에 시간을 주고, 청중 표정 보면서 진행.</aside>
+</section>
+
+<!-- ============ 15. PROOF #1 - 교훈 ============ -->
+<section class="dark">
+  <span class="eyebrow">사례 1 · 교훈</span>
+  <h2 style="color:var(--white);">코딩 못해도 가능합니다</h2>
+  <div class="callout" style="background:rgba(255,255,255,0.08);">
+    <p class="big">저는 코딩을 <em class="h">배운 적이 없습니다</em>.</p>
+    <p>AI가 옆에 앉아 코드를 짭니다. 저는 <em class="h">읽고 이해할 수만</em> 있으면 됐습니다.</p>
+    <p style="margin-top:14px; color:var(--accent-soft);">→ 이게 "프롬프트 시대"에서 "에이전트 시대"로 넘어가는 <em class="h">진짜 전환점</em>입니다.</p>
+  </div>
+  <aside class="notes">36분. 청중이 가장 두려워하는 "코딩" 장벽을 직접 깨기.</aside>
+</section>
+
+<!-- ============ 16. PROOF #1 - 첫걸음 ============ -->
+<section>
+  <span class="eyebrow">사례 1 · 내일부터</span>
+  <h2>첫걸음 — 매월 반복 업무 1가지</h2>
+  <ol style="font-size:0.9em; line-height:1.8;">
+    <li>매월 반복되는 행정 업무 <em class="h">1가지</em>를 종이에 적기 (급여? 수강료? 정산?)</li>
+    <li>Claude/ChatGPT에 <em class="h">한 문장</em>으로 설명:</li>
+  </ol>
+  <div class="quote-block" style="font-size:1em;">
+    "이 일을 매번 반복하는데, 자동화하는 방법 알려주세요."
+  </div>
+  <p style="color:var(--grey); margin-top:14px;">→ AI가 물어보는 질문에 답하면, <em class="h">3단계 자동화 가이드</em>가 나옵니다.</p>
+  <aside class="notes">38분. 청중이 *집에 가서 진짜 할* 행동 한 가지.</aside>
+</section>
+
+<!-- ============ 17. PROOF #2 - INTRO ============ -->
+<section>
+  <span class="pill">PROOF · 사례 2</span>
+  <h2>시험지 사진 1장 →<br><em class="h">학부모용 보고서 + 강사용 4주 로드맵</em></h2>
+  <p style="color:var(--grey); margin-top:20px;">학생 1명당 30분 채점·작성 → 분 단위로 완료. 진단으로 끝나지 않는 자동화.</p>
+  <aside class="notes">42분. 사례 #1과 다른 결 - 학원 정체성·차별화 사례.</aside>
+</section>
+
+<!-- ============ 18. PROOF #2 - Before ============ -->
+<section>
+  <span class="eyebrow">사례 2 · BEFORE</span>
+  <h2>입반테스트의 4가지 부담</h2>
+  <table>
+    <thead><tr><th>단계</th><th>학원장·강사 부담</th></tr></thead>
+    <tbody>
+      <tr><td>채점</td><td>학생 1명당 <em class="h">30분 이상</em></td></tr>
+      <tr><td>보고서</td><td>강사마다 <em class="h">다른 형식</em>, 또는 작성 안 함</td></tr>
+      <tr><td>학부모용 ↔ 강사용</td><td>분리 없이 한 형식 → <em class="h">둘 다 어중간</em></td></tr>
+      <tr><td>진단 → 반 배정 → 학습 로드맵</td><td>머릿속에만, <em class="h">연결 없음</em></td></tr>
+    </tbody>
+  </table>
+  <p style="margin-top:16px; color:var(--accent); font-weight:700;">→ 입반테스트의 진짜 가치인 <em class="h">학생별 맞춤 학습 방향</em>이 사라짐.</p>
+  <aside class="notes">44분. 청중 본인이 입반테스트 후 어떻게 처리하는지 떠올림.</aside>
+</section>
+
+<!-- ============ 19. PROOF #2 - "안 만든 것의 가치" ============ -->
+<section class="soft">
+  <span class="eyebrow">사례 2 · ACTION</span>
+  <h2>핵심 결정 — <em class="h">안 만든 것의 가치</em></h2>
+  <table>
+    <thead><tr><th style="width:15%">과목</th><th>시중 도구</th><th>선택</th></tr></thead>
+    <tbody>
+      <tr><td><strong>수학</strong></td><td>매쓰플랫 (문제은행+보고서 충분)</td><td style="color:var(--success); font-weight:700;">유지 — 안 만듦</td></tr>
+      <tr class="highlight"><td><strong>영어</strong></td><td>시중 자동 채점·보고서 도구 <em class="h">부족</em></td><td>자체 제작 — 만듦</td></tr>
+    </tbody>
+  </table>
+  <div class="quote-block" style="margin-top:20px;">
+    모든 걸 자체 제작할 필요 없습니다.<br>
+    <em class="h">시중 도구가 못 채우는 영역만</em> 자체 제작 — 이게 학원장의 진짜 의사결정.
+  </div>
+  <aside class="notes">46분. 청중이 가장 두려워하는 "전부 갈아엎기" 압박 풀기.</aside>
+</section>
+
+<!-- ============ 20. PROOF #2 - 시스템 구조 ============ -->
+<section>
+  <span class="eyebrow">사례 2 · 구조</span>
+  <h2>1번 실행으로 <em class="h">3종 산출물</em></h2>
+  <div class="cards">
+    <div class="card-item">
+      <div class="lbl">①</div>
+      <h4>인포그래픽 PNG</h4>
+      <p>학부모용 · 4패널</p>
+      <p>총점/영역/단원/유형별</p>
+    </div>
+    <div class="card-item">
+      <div class="lbl">②</div>
+      <h4>학부모용 docx</h4>
+      <p>1쪽 · 강점/약점/반 배정</p>
+    </div>
+    <div class="card-item">
+      <div class="lbl">③</div>
+      <h4>강사용 xlsx</h4>
+      <p>4시트 · <em class="h">4주 보강 로드맵</em></p>
+    </div>
+  </div>
+  <p style="text-align:center; color:var(--grey); margin-top:14px;">입력: 시험지 메타데이터 + 학생 답안 → 출력: 학부모용 + 강사용 분리</p>
+  <aside class="notes">48분. 다음 슬라이드에서 실물 시연.</aside>
+</section>
+
+<!-- ============ 21. PROOF #2 - 실물 시연 ============ -->
+<section>
+  <span class="eyebrow">사례 2 · 실물 시연</span>
+  <h2>실제 산출물 보여드립니다 <span style="color:var(--grey); font-size:0.55em;">(학생명 익명 처리)</span></h2>
+  <div class="cards">
+    <div class="ph-img">
+      <div class="icn">📊</div>
+      인포그래픽 PNG<br>(익명 처리본)
+    </div>
+    <div class="ph-img">
+      <div class="icn">📄</div>
+      학부모용 docx<br>(익명 처리본)
+    </div>
+    <div class="ph-img">
+      <div class="icn">📈</div>
+      강사용 4주 로드맵<br>(익명 처리본)
+    </div>
+  </div>
+  <p style="text-align:center; color:var(--accent); font-weight:700; margin-top:14px;">→ 강사가 1명당 <em class="h">5분 안에 완성</em>되는 결과물입니다.</p>
+  <aside class="notes">50분. 가장 임팩트 큰 장면. 청중이 자세히 볼 시간 줌.</aside>
+</section>
+
+<!-- ============ 22. PROOF #2 - 보안·정보 범위 ============ -->
+<section>
+  <span class="eyebrow">사례 2 · 학부모 안심 슬라이드</span>
+  <h2>들어가는 정보 / 들어가지 않는 정보</h2>
+  <div class="two-col">
+    <div class="card-item" style="background:var(--accent-soft); border-left:4px solid var(--accent);">
+      <div class="lbl" style="color:var(--accent);">✓ 들어가는 것</div>
+      <ul style="font-size:0.85em; margin:8px 0 0 1em;">
+        <li>학습관 피드백 (숙제·오답 완성도)</li>
+        <li>수업 일일 피드백 (진도·숙제·특이사항)</li>
+      </ul>
+    </div>
+    <div class="card-item" style="background:var(--navy-soft); border-left:4px solid var(--navy);">
+      <div class="lbl" style="color:var(--navy);">✗ 들어가지 않는 것</div>
+      <ul style="font-size:0.85em; margin:8px 0 0 1em;">
+        <li>점수·등급·석차</li>
+        <li>사진·영상</li>
+        <li>학생 심리·가족 정보</li>
+        <li>다른 학생과의 비교</li>
+      </ul>
+    </div>
+  </div>
+  <p style="margin-top:16px; color:var(--accent); font-weight:700; text-align:center;">학부모가 <em class="h">불안해질 정보</em>는 빼고, 학습 행동에 집중.</p>
+  <aside class="notes">52분. 점수 강박 학원과 다른 자리 - 차별화 한 번 더.</aside>
+</section>
+
+<!-- ============ 23. PROOF #2 - 교훈 ============ -->
+<section class="dark">
+  <span class="eyebrow">사례 2 · 교훈</span>
+  <h2 style="color:var(--white);">2단 메시지</h2>
+  <div class="callout" style="background:rgba(255,255,255,0.08); margin-bottom:14px;">
+    <div class="lead">메시지 1 — 진단으로 끝나지 않기</div>
+    <p>AI 보고서 자동화의 진짜 가치는 채점 시간 절감이 아닙니다.<br>
+    <em class="h">진단 → 학부모 안내 → 강사 보강 계획</em>까지 한 흐름.</p>
+  </div>
+  <div class="callout" style="background:rgba(255,255,255,0.08);">
+    <div class="lead">메시지 2 — 안 만든 것의 가치</div>
+    <p>수학은 매쓰플랫이 잘하니 안 만들었습니다. 영어는 그런 도구가 없어 만들었습니다.<br>
+    <em class="h">시중 도구가 못 채우는 영역만</em> 자체 제작 — 학원장의 의사결정.</p>
+  </div>
+  <aside class="notes">54분. 메시지 2가 청중 압박 풀어주는 핵심.</aside>
+</section>
+
+<!-- ============ 24. 실습 안내 - 제목 ============ -->
+<section class="accent">
+  <div class="big-msg">
+    <div>
+      <span class="eyebrow">PRACTICE · 15분</span>
+      <p class="big">이제 같이 해봅시다</p>
+      <p class="small" style="color:rgba(255,255,255,0.9)">AI에게 <em class="h">내 학원을 기억시키는</em> 첫 세팅.</p>
+    </div>
+  </div>
+  <aside class="notes">54분 → 실습 모드 전환. 톤 바꿈. 일방 강의 → 같이 해보는 자리.</aside>
+</section>
+
+<!-- ============ 25. 실습 URL ============ -->
+<section>
+  <span class="eyebrow">실습 가이드</span>
+  <h2>가이드 페이지 — 휴대폰·노트북에서 열어주세요</h2>
+  <div class="url-big">
+    <div class="label">QR 또는 직접 입력</div>
+    <div class="url">[실습 URL — 호스팅 후 삽입]</div>
+  </div>
+  <p style="color:var(--grey); text-align:center; font-size:0.8em;">5가지 학원 정보 입력 → 시스템 프롬프트 자동 생성 → 복사 → Claude/ChatGPT에 붙여넣기</p>
+  <aside class="notes">56분. QR 코드 띄우기. 종이 가이드(인쇄본)도 같이 배포.</aside>
+</section>
+
+<!-- ============ 26. 실습 진행 안내 ============ -->
+<section>
+  <span class="eyebrow">실습 흐름</span>
+  <h2>3단계 · 15분</h2>
+  <div class="num-row">
+    <div class="num-item">
+      <div class="n">1</div>
+      <div class="lbl">3분</div>
+      <p style="font-size:0.75em; color:var(--dark); margin-top:8px;">학원 정보 5가지 입력</p>
+    </div>
+    <div class="num-item">
+      <div class="n">2</div>
+      <div class="lbl">8분</div>
+      <p style="font-size:0.75em; color:var(--dark); margin-top:8px;">Claude/ChatGPT에 저장</p>
+    </div>
+    <div class="num-item">
+      <div class="n">3</div>
+      <div class="lbl">3분</div>
+      <p style="font-size:0.75em; color:var(--dark); margin-top:8px;">세팅 전/후 비교 체험</p>
+    </div>
+  </div>
+  <p style="margin-top:20px; color:var(--accent); font-weight:700; text-align:center;">완벽 안 해도 OK. 모르겠으면 손 들어주세요 — 옆에서 도와드립니다.</p>
+  <aside class="notes">57분. 실습 시작. 청중 부담 줄이기.</aside>
+</section>
+
+<!-- ============ 27. Framework - 행동 가이드 ============ -->
+<section>
+  <span class="eyebrow">FRAMEWORK · 내일부터</span>
+  <h2>3가지 행동 가이드</h2>
+  <div class="num-row">
+    <div class="num-item">
+      <div class="n">1</div>
+      <p style="font-size:0.7em; color:var(--dark); margin-top:8px; min-height:60px;"><strong class="navy">오늘</strong><br>반복되는 행정 업무 1가지를 종이에 적기</p>
+    </div>
+    <div class="num-item">
+      <div class="n">2</div>
+      <p style="font-size:0.7em; color:var(--dark); margin-top:8px; min-height:60px;"><strong class="navy">이번 주</strong><br>학원 정보를 Claude Project에 한 번 저장</p>
+    </div>
+    <div class="num-item">
+      <div class="n">3</div>
+      <p style="font-size:0.7em; color:var(--dark); margin-top:8px; min-height:60px;"><strong class="navy">이번 달</strong><br>반복 업무 1개를 AI에게 위임</p>
+    </div>
+  </div>
+  <aside class="notes">69분. 단언형. 압도감을 행동 가능감으로 바꾸기.</aside>
+</section>
+
+<!-- ============ 28. 시리즈 4단계 ============ -->
+<section>
+  <span class="eyebrow">SERIES · 시리즈 강의</span>
+  <h2>우리 학원은 지금 몇 단계?</h2>
+  <table>
+    <thead><tr><th style="width:10%">단계</th><th>이름</th><th>의미</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1</strong></td><td>ChatGPT 활용</td><td>프롬프트로 일을 도와받음 <span style="color:var(--grey);">(대부분 청중)</span></td></tr>
+      <tr class="highlight"><td><strong>2</strong></td><td><strong>반복 작업 위임</strong></td><td><strong>매번 하던 일을 AI에게 맡김 — 오늘 강의</strong></td></tr>
+      <tr><td><strong>3</strong></td><td>학원 맞춤 도구 제작</td><td>자체 시스템 직접 만듦 <span style="color:var(--accent);">(7월 예정)</span></td></tr>
+      <tr><td><strong>4</strong></td><td>데이터 기반 학원 운영</td><td>AI가 의사결정 파트너 <span style="color:var(--accent);">(8월 예정)</span></td></tr>
+    </tbody>
+  </table>
+  <p style="margin-top:14px; color:var(--grey); font-size:0.8em;">→ 마케팅 워크플로우(<em class="h">사례 6</em>), 회의록 장기 분석은 다음 강의에서 깊게 다룰 주제.</p>
+  <aside class="notes">71분. 시리즈 예고는 영업 톤 빼고 정보 전달 톤으로.</aside>
+</section>
+
+<!-- ============ 29. Q&A 안내 ============ -->
+<section class="soft">
+  <div class="big-msg">
+    <div>
+      <span class="eyebrow">Q&A · 10분</span>
+      <p class="big">질문, 의심, 반박<br>— 모두 환영합니다</p>
+      <p class="small">친한 자리에서 못 물으면 어디서 물으시겠어요.</p>
+    </div>
+  </div>
+  <aside class="notes">75분. Q&A. 톤은 동료끼리 대화.</aside>
+</section>
+
+<!-- ============ 30. 추천 부탁 - 솔직한 톤 ============ -->
+<section class="dark">
+  <span class="eyebrow">CLOSING · 부탁</span>
+  <h2 style="color:var(--white);">오늘 처음 강연을 해본 자리예요</h2>
+  <p style="font-size:0.95em; line-height:1.8;">다음에도 비슷한 자리가 있으면 또 하고 싶습니다.<br>
+  비슷한 고민하는 다른 원장님 모임이나 단톡방이 있으시면,<br>
+  한번 <em class="h">소개</em>해주시면 정말 감사하겠습니다.</p>
+  <div class="quote-block">
+    영업 잘 못해서 — <em class="h">친분에 기대는 중</em>이에요.
+  </div>
+  <aside class="notes">85분. 솔직한 인정이 친분 모드에선 가장 매력. 추천 받기 KPI의 핵심 1분.</aside>
+</section>
+
+<!-- ============ 31. 소개 문구 카드 ============ -->
+<section>
+  <span class="eyebrow">소개하실 때</span>
+  <h2>이렇게 전해주시면 좋겠습니다</h2>
+  <div class="quote-block" style="font-size:1.1em; margin-top:30px;">
+    "한 원장님인데, AI를 학원에 <em class="h">직접 만들어 쓰는</em> 현직 학원장이에요.<br>
+    이론이 아니라 본인 학원 사례 그대로 보여줘서, 우리도 따라할 수 있어요."
+  </div>
+  <p style="margin-top:24px; color:var(--grey); font-size:0.8em; text-align:center;">선물 PDF 마지막 페이지에도 이 문구가 있습니다 — 그대로 가져가서 쓰세요.</p>
+  <aside class="notes">86분. 추천 마찰을 미리 0으로 만들어줌.</aside>
+</section>
+
+<!-- ============ 32. 선물 PDF + 실습 가이드 URL ============ -->
+<section>
+  <span class="eyebrow">선물</span>
+  <h2>오늘 자료 두 가지</h2>
+  <div class="two-col">
+    <div class="card-item" style="text-align:center; padding:28px 20px;">
+      <h4 style="color:var(--navy);">AI 자동화 기본 세팅 가이드</h4>
+      <p style="color:var(--grey); font-size:0.85em;">A4 6쪽 PDF · 자가 진단 포함</p>
+      <div class="url-big" style="margin:14px 0 0; padding:16px 20px;">
+        <div class="url" style="font-size:1em;">[가이드 URL]</div>
+      </div>
+    </div>
+    <div class="card-item" style="text-align:center; padding:28px 20px;">
+      <h4 style="color:var(--navy);">실습 — 페르소나 첫 세팅</h4>
+      <p style="color:var(--grey); font-size:0.85em;">웹페이지 · 입력→복사 즉시</p>
+      <div class="url-big" style="margin:14px 0 0; padding:16px 20px;">
+        <div class="url" style="font-size:1em;">[실습 URL]</div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">87분. QR 코드 첨부 권장. 출력본도 함께 배포.</aside>
+</section>
+
+<!-- ============ 33. 연락처 ============ -->
+<section>
+  <span class="eyebrow">CONTACT</span>
+  <h2>강연·컨설팅·협업·단순 질문 — 모두 환영</h2>
+  <table style="margin-top:24px;">
+    <tbody>
+      <tr><td style="width:25%; color:var(--accent); font-weight:700;">이메일</td><td>breeze0813@gmail.com</td></tr>
+      <tr><td style="color:var(--accent); font-weight:700;">학원</td><td>T-Point Edu (강동구 고덕동)</td></tr>
+      <tr><td style="color:var(--accent); font-weight:700;">인스타그램</td><td>@tpointedu</td></tr>
+      <tr><td style="color:var(--accent); font-weight:700;">네이버 블로그</td><td>blog.naver.com/breeze0813</td></tr>
+    </tbody>
+  </table>
+  <aside class="notes">88분. 명함 교환 시간으로 연결.</aside>
+</section>
+
+<!-- ============ 34. 마무리 ============ -->
+<section class="accent">
+  <div class="big-msg">
+    <div>
+      <p class="big" style="font-family:'Noto Serif KR', serif; font-style:italic;">오늘 함께해주신<br>시간 감사합니다.</p>
+      <p class="small" style="color:rgba(255,255,255,0.9); margin-top:20px;">— 엄지희 드림</p>
+    </div>
+  </div>
+  <aside class="notes">90분 끝. 인사 후 명함 교환 + 1:1 짧은 대화 10분 (가장 중요).</aside>
+</section>
+
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/plugin/notes/notes.min.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: 'c/t',
+    controls: true,
+    progress: true,
+    center: false,
+    transition: 'slide',
+    backgroundTransition: 'fade',
+    width: 1280,
+    height: 720,
+    margin: 0.04,
+    minScale: 0.4,
+    maxScale: 1.6,
+    plugins: [ RevealNotes ]
+   });
+</script>
+
+</body>
+</html>
