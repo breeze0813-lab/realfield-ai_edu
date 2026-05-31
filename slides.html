@@ -418,6 +418,23 @@
     font-size: 2em;
     margin-bottom: 8px;
   }
+  .ph-img.has-img {
+    padding: 0;
+    border: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .ph-img.has-img img {
+    max-width: 100%;
+    max-height: 420px;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    background: var(--white);
+    box-shadow: 0 2px 12px rgba(31,56,100,0.1);
+    display: block;
+  }
 
   /* ===== URL BIG ===== */
   .url-big {
@@ -585,10 +602,8 @@
         이게 시리즈 <em class="h">3단계 — 학원 맞춤 도구 제작</em> 영역입니다. (다음 강의 예고)
       </div>
     </div>
-    <div class="ph-img">
-      <div class="icn">📱</div>
-      자체 앱 화면 캡처<br>
-      (D-day 전 익명 처리 후 삽입)
+    <div class="ph-img has-img">
+      <img src="images/app-dashboard.png" alt="자체 제작 학부모 피드백 시스템 화면 (강사·학생명 익명 처리)">
     </div>
   </div>
   <aside class="notes">17분. 30초 짧게. 다음 강의 미끼 + 본 강의 메시지(부분 자체 제작) 한 번 더 박기.</aside>
@@ -810,17 +825,14 @@
   <span class="eyebrow">사례 2 · 실물 시연</span>
   <h2>실제 산출물 보여드립니다 <span style="color:var(--grey); font-size:0.55em;">(학생명 익명 처리)</span></h2>
   <div class="cards">
-    <div class="ph-img">
-      <div class="icn">📊</div>
-      인포그래픽 PNG<br>(익명 처리본)
+    <div class="ph-img has-img">
+      <img src="images/placement-report-1.png" alt="인포그래픽 점수 요약 보고서 (익명 처리본)">
     </div>
-    <div class="ph-img">
-      <div class="icn">📄</div>
-      학부모용 docx<br>(익명 처리본)
+    <div class="ph-img has-img">
+      <img src="images/placement-report-2.png" alt="영역별 진단 + 종합 코멘트 학부모용 보고서 (익명 처리본)">
     </div>
-    <div class="ph-img">
-      <div class="icn">📈</div>
-      강사용 4주 로드맵<br>(익명 처리본)
+    <div class="ph-img has-img">
+      <img src="images/feedback-common.png" alt="강사용 피드백 입력 화면 (익명 처리본)">
     </div>
   </div>
   <p style="text-align:center; color:var(--accent); font-weight:700; margin-top:14px;">→ 강사가 1명당 <em class="h">5분 안에 완성</em>되는 결과물입니다.</p>
