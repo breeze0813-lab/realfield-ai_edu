@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>엄지희 — 학원장의 언어로, 학부모의 언어로</title>
-<meta name="description" content="현직 학원장이자 초4 학부모인 엄지희가 직접 검증한, 한국 교육 현장에 진짜 쓰이는 AI 사용법. 강연·컨설팅·콘텐츠.">
+<title>엄지희 — 현직 학원장이 직접 만들어 쓰는 AI 교육</title>
+<meta name="description" content="현직 학원장 엄지희가 자기 학원에서 1년간 직접 도입·검증한, 학원 운영에 진짜 쓰이는 AI 사용법. 학원장 대상 강연·워크숍·도입 자문.">
 <meta property="og:title" content="엄지희 — 현직 학원장이 직접 만들어 쓰는 AI 교육">
-<meta property="og:description" content="이론이 아니라, 학원과 가정에서 진짜 써본 것만 말합니다.">
+<meta property="og:description" content="이론이 아니라, 학원에서 진짜 써본 것만 말합니다. 학원장을 위한 실전 AI.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -189,24 +189,17 @@
     line-height: 1.7;
   }
 
-  /* ===== WHO-FOR (학원장 / 학부모 분기) ===== */
+  /* ===== WHO-FOR (학원장 단일) ===== */
   .who-for {
     background: var(--white);
-  }
-  .who-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 28px;
-    margin-top: 40px;
-  }
-  @media (min-width: 720px) {
-    .who-grid { grid-template-columns: 1fr 1fr; }
   }
   .who-card {
     background: var(--bg);
     border-radius: var(--radius);
-    padding: 40px 32px;
+    padding: 40px 36px;
     border: 1px solid var(--line);
+    max-width: 760px;
+    margin: 40px auto 0;
   }
   .who-card .who-label {
     color: var(--accent);
@@ -227,7 +220,7 @@
   }
   .who-card li {
     color: var(--dark);
-    font-size: 15px;
+    font-size: 15.5px;
     line-height: 1.7;
     padding-left: 18px;
     position: relative;
@@ -340,37 +333,6 @@
     line-height: 1.4;
     margin-bottom: 18px;
   }
-  .case-shot {
-    width: 100%;
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--line);
-    margin: 0 0 18px;
-    display: block;
-    background: var(--white);
-  }
-  .case-shots {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 14px;
-    margin: 0 0 18px;
-  }
-  @media (min-width: 720px) {
-    .case-shots { grid-template-columns: repeat(3, 1fr); }
-  }
-  .case-shots figure { margin: 0; }
-  .case-shots img {
-    width: 100%;
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--line);
-    background: var(--white);
-    display: block;
-  }
-  .case-shots figcaption {
-    color: var(--grey);
-    font-size: 12.5px;
-    text-align: center;
-    margin-top: 6px;
-  }
   .case-row {
     display: grid;
     grid-template-columns: 80px 1fr;
@@ -401,8 +363,60 @@
     font-family: 'Noto Serif KR', serif;
     line-height: 1.6;
   }
+  /* 케이스 이미지 */
+  .case-img {
+    width: 100%;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--line);
+    margin: 16px 0 4px;
+    display: block;
+  }
+  .case-imgs {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin: 16px 0 4px;
+  }
+  @media (min-width: 600px) {
+    .case-imgs { grid-template-columns: 1fr 1fr 1fr; }
+  }
+  .case-imgs figure { margin: 0; }
+  .case-imgs img {
+    width: 100%;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--line);
+    display: block;
+  }
+  .case-imgs figcaption,
+  .case-cap {
+    color: var(--grey);
+    font-size: 12px;
+    font-style: italic;
+    margin-top: 6px;
+    text-align: center;
+  }
+  /* 이미지 준비 전 자리표시 — 실물 캡처 생기면 <img>로 교체 */
+  .ph-box {
+    background: var(--navy-soft);
+    border: 2px dashed var(--navy);
+    border-radius: var(--radius-sm);
+    color: var(--navy);
+    padding: 30px 18px;
+    text-align: center;
+    font-size: 13px;
+    font-style: italic;
+    line-height: 1.5;
+  }
+  .ph-box .ph-ttl {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12.5px;
+    margin-bottom: 4px;
+    display: block;
+    letter-spacing: 0.5px;
+  }
 
-  /* ===== MENU (강연·콘텐츠) ===== */
+  /* ===== MENU (강연·워크숍·자문) ===== */
   .menu-section {
     background: var(--navy);
     color: var(--white);
@@ -527,6 +541,7 @@
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 1px;
+    text-align: right;
   }
   .stage.now .stg-when {
     background: var(--accent);
@@ -605,7 +620,7 @@
     color: var(--accent);
   }
 
-  /* ===== TODAK (다른 채널) ===== */
+  /* ===== TODAK (학부모 라우팅) ===== */
   .other-channels {
     margin-top: 32px;
     padding: 24px 28px;
@@ -747,11 +762,11 @@
 <!-- ===== TOPNAV ===== -->
 <nav class="topnav">
   <div class="topnav-inner">
-    <div class="topnav-brand">엄지희 <span class="accent">·</span> AI 교육</div>
+    <div class="topnav-brand">엄지희 <span class="accent">·</span> 학원장 AI 교육</div>
     <div class="topnav-links">
       <a href="#about">소개</a>
       <a href="#cases">사례</a>
-      <a href="#menu">강연·콘텐츠</a>
+      <a href="#menu">강연·워크숍</a>
       <a href="#series">시리즈</a>
       <a href="#contact">연락처</a>
     </div>
@@ -760,57 +775,41 @@
 
 <!-- ===== HERO ===== -->
 <header class="hero">
-  <div class="hero-eyebrow">현직 학원장 · 초4 학부모</div>
+  <div class="hero-eyebrow">현직 학원장 · 학군지 20년</div>
   <h1 class="hero-title">
     학원장의 언어로,<br>
-    <span class="br">학부모의 언어로</span>
+    <span class="br">현장에서 검증한 AI</span>
   </h1>
   <p class="hero-sub">
-    이론이 아니라, 학원과 가정에서 <em class="h">진짜 써본 것</em>만 말합니다.<br>
-    한국 교육 현장에 실제로 쓰이는 AI 사용법을 1년간 직접 살아본 사람의 시각으로.
+    이론이 아니라, 제 학원에서 <em class="h">진짜 써본 것</em>만 말합니다.<br>
+    학원 운영에 실제로 쓰이는 AI를 1년간 직접 도입·검증한 사람의 시각으로.
   </p>
   <div class="hero-tags">
     <span class="tag">T-Point Edu 학원장</span>
-    <span class="tag">초4 학부모</span>
-    <span class="tag">거여초 학부모회장</span>
+    <span class="tag">학군지 경력 20년</span>
+    <span class="tag">직접 도입·검증</span>
   </div>
 </header>
 
-<!-- ===== WHO-FOR ===== -->
+<!-- ===== WHO-FOR (학원장 단일) ===== -->
 <section class="who-for" id="who-for">
   <div class="section-inner">
     <div class="section-head">
       <div class="section-num">01 — FOR WHOM</div>
-      <h2>이 페이지는 두 분을 위해 만들었습니다</h2>
+      <h2>이런 학원장을 위해 만들었습니다</h2>
     </div>
-    <div class="who-grid">
-      <!-- 학원장 -->
-      <div class="who-card">
-        <div class="who-label">FOR · 학원장</div>
-        <h3>학원장이세요?</h3>
-        <ul>
-          <li>"AI 도입해야 한다는 건 알겠는데, 어디부터 시작해야 할지 모르겠다"</li>
-          <li>"조교·강사 인건비는 오르는데 매출은 정체다"</li>
-          <li>"AI 학원이 우후죽순 생긴다는데, 우리 학원은 괜찮을까"</li>
-        </ul>
-        <div class="who-cta">
-          같은 학원장으로서, 1년간 직접 도입하며 배운 것을 솔직히 나눕니다. <br>
-          <a href="#cases" style="color:var(--accent); text-decoration:none;">→ 학원장 사례 보기</a>
-        </div>
-      </div>
-      <!-- 학부모 -->
-      <div class="who-card">
-        <div class="who-label">FOR · 학부모</div>
-        <h3>학부모세요?</h3>
-        <ul>
-          <li>"우리 아이가 AI로 숙제를 해온다, 어떻게 해야 할지 모르겠다"</li>
-          <li>"AI 시대에 우리 아이 사고력이 망가질까 두렵다"</li>
-          <li>"어떤 AI는 시켜도 되고 어떤 건 안 되는지 명확한 가이드를 원한다"</li>
-        </ul>
-        <div class="who-cta">
-          초4 아들을 키우는 같은 학부모로서, 시켜보고 효과·부작용을 모두 정리해드립니다.<br>
-          <a href="#contact" style="color:var(--accent); text-decoration:none;">→ 학부모 강연·콘텐츠 안내</a>
-        </div>
+    <div class="who-card">
+      <div class="who-label">FOR · 학원장</div>
+      <h3>이런 고민, 하고 계시죠?</h3>
+      <ul>
+        <li>"AI 도입해야 한다는 건 알겠는데, 어디부터 시작해야 할지 모르겠다"</li>
+        <li>"조교·강사 인건비는 오르는데 매출은 정체다"</li>
+        <li>"매월·매주 똑같은 행정 업무에 반나절씩 사라진다"</li>
+        <li>"AI 학원이 우후죽순 생긴다는데, 우리 학원은 괜찮을까"</li>
+      </ul>
+      <div class="who-cta">
+        같은 학원장으로서, 1년간 직접 도입하며 배운 것을 솔직히 나눕니다.<br>
+        <a href="#cases" style="color:var(--accent); text-decoration:none;">→ 학원 운영 사례 보기</a>
       </div>
     </div>
   </div>
@@ -830,11 +829,9 @@
         <div class="diff-num">1</div>
         <div>
           <h3>같은 입장의 언어</h3>
-          <p>완전 전문가·이론가의 말은 학원장이 공감하지 못합니다. 학부모도 마찬가지입니다.</p>
+          <p>전문가·이론가의 말은 학원장이 공감하기 어렵습니다. 강의실 풍경도, 급여날 부담도 겪어본 적이 없으니까요.</p>
           <p>저는 <strong class="navy">현직 학원장</strong>입니다 (T-Point Edu 운영).<br>
-          저는 <strong class="navy">초4 아들을 키우는 학부모</strong>입니다.</p>
-          <p>학원장에게는 학원장이 어제 본 풍경에서 시작하고,<br>
-          학부모에게는 학부모가 어제 본 풍경에서 시작합니다.</p>
+          그래서 <strong class="navy">학원장이 어제 본 풍경</strong>에서 이야기를 시작합니다.</p>
         </div>
       </div>
       <!-- 2 -->
@@ -842,11 +839,11 @@
         <div class="diff-num">2</div>
         <div>
           <h3>현장 검증</h3>
-          <p>매 콘텐츠·강연·컨설팅마다, 제가 <em class="h">직접 학원·가정에서 도입해본 사례</em>만 다룹니다.</p>
+          <p>모든 강연·워크숍·자문은, 제가 <em class="h">직접 제 학원에서 도입해본 사례</em>만 다룹니다.</p>
           <p>이론적으로 가능한 것 ≠ 실제로 효과 있는 것.</p>
           <div class="quote-inline">
-            "이 프롬프트를 한 달 써본 결과 시간이 40% 줄었다."<br>
-            "이 도구를 처음 2주는 효과, 3주째부터 부작용이 나타났다."
+            "이 도구로 급여 정산 반나절이 30분으로 줄었다."<br>
+            "이 자동화는 처음엔 좋았지만, 3주째부터 이런 한계가 나타났다."
           </div>
           <p style="margin-top:14px;">— 이런 디테일이 신뢰의 시작이라고 믿습니다. <strong class="navy">검증되지 않은 이야기는 다루지 않습니다.</strong></p>
         </div>
@@ -858,12 +855,12 @@
           <h3>균형 관점</h3>
           <p>AI 옹호도, AI 공포도 답이 아닙니다.</p>
           <p>"AI 빨리 도입 안 하면 뒤처진다" — FOMO 자극.<br>
-          "AI가 사고력 망친다" — 불안 자극.</p>
+          "AI 학원이 다 잡아먹는다" — 불안 자극.</p>
           <div class="quote-inline">
-            저의 일관된 메시지는: "어디까지는 쓰고, 어디서는 멈춰야 하는가.<br>
+            저의 일관된 메시지는: "어디까지는 AI에게 맡기고, 어디서부터는 원장이 직접 해야 하는가.<br>
             그 경계를 같이 정합시다."
           </div>
-          <p style="margin-top:14px;">학원에서도, 가정에서도, 이 경계를 만드는 게 진짜 어른의 일이라고 생각합니다.</p>
+          <p style="margin-top:14px;">반복은 AI에게, 판단은 사람에게 — 그 경계를 긋는 게 원장의 진짜 일이라고 생각합니다.</p>
         </div>
       </div>
     </div>
@@ -875,10 +872,10 @@
   <div class="section-inner">
     <div class="section-head">
       <div class="section-num">03 — CASES</div>
-      <h2>제가 직접 써본 사례</h2>
+      <h2>제가 직접 써본 학원 운영 사례</h2>
     </div>
     <p class="case-disclaimer">
-      모든 사례는 T-Point Edu 또는 우리 가정에서 실제 진행한 것입니다. 학생·강사·금액 등 식별 정보는 모두 익명 처리했습니다.
+      모든 사례는 T-Point Edu에서 실제 진행한 것입니다. 학생·강사·금액 등 식별 정보는 모두 익명 처리했습니다.
     </p>
 
     <div class="case-grid">
@@ -907,8 +904,8 @@
       <div class="case-card">
         <div class="case-tag">학원 운영 · 학생 진단</div>
         <h3>시험지 1장 → 학부모 보고서 + 강사 로드맵</h3>
-        <img class="case-shot" src="images/placement-report-1.png" alt="입반테스트 자동 생성 보고서 — 점수 요약 인포그래픽">
-        <p style="color:var(--grey); font-size:13px; margin:-8px 0 16px; text-align:center;">실제 산출물 — 학생 식별 정보는 익명 처리</p>
+        <img class="case-img" src="images/placement-report-1.png" alt="입반테스트 자동 생성 보고서 — 점수 요약 (익명 처리)">
+        <div class="case-cap">실제 산출물 — 학생 식별 정보는 익명 처리</div>
         <div class="case-row">
           <div class="lbl">상황</div>
           <div class="val">입반테스트 후 채점·보고서·반 배정·학습 방향까지 분리 없이 <em class="h">한 사람 손으로</em></div>
@@ -930,21 +927,21 @@
       <div class="case-card case-full">
         <div class="case-tag">학원 운영 · 학부모 응대</div>
         <h3>"안 좋은 피드백을 매일 강제로 받는 부담" — 학부모 단일링크 누적 피드백</h3>
-        <div class="case-shots">
+        <div class="case-imgs">
           <figure>
-            <img src="images/app-login.png" alt="피드백 입력 시스템 로그인 화면">
+            <img src="images/app-login.png" alt="피드백 입력 시스템 로그인 화면 (익명 처리)">
             <figcaption>① 강사·조교 로그인</figcaption>
           </figure>
           <figure>
-            <img src="images/app-dashboard.png" alt="강사 대시보드 — 반 선택 화면">
+            <img src="images/app-dashboard.png" alt="강사 대시보드 — 반 선택 화면 (익명 처리)">
             <figcaption>② 반 선택 대시보드</figcaption>
           </figure>
           <figure>
-            <img src="images/feedback-common.png" alt="공통 피드백 입력 화면">
+            <img src="images/feedback-common.png" alt="공통 피드백 입력 화면 (익명 처리)">
             <figcaption>③ 피드백 입력</figcaption>
           </figure>
         </div>
-        <p style="color:var(--grey); font-size:13px; margin:-4px 0 16px; text-align:center;">실제 자체 제작 시스템 화면 — 강사·학생 식별 정보는 익명 처리</p>
+        <div class="case-cap" style="margin-bottom:14px;">실제 자체 제작 시스템 화면 — 강사·학생 식별 정보는 익명 처리</div>
         <div style="display:grid; grid-template-columns:1fr; gap:0; margin-bottom:14px;">
           <div class="case-row">
             <div class="lbl">상황</div>
@@ -972,13 +969,13 @@
   <div class="section-inner">
     <div class="section-head">
       <div class="section-num">04 — WORKS</div>
-      <h2>함께 작업할 수 있는 일</h2>
-      <p class="section-sub">강연·콘텐츠·자문 — 모든 작업은 한 가지 원칙으로: <em class="h">제가 직접 검증한 것만</em></p>
+      <h2>함께할 수 있는 일</h2>
+      <p class="section-sub">강연·워크숍·자문 — 모두 한 가지 원칙으로: <em class="h">제가 직접 검증한 것만</em></p>
     </div>
     <div class="menu-grid">
       <div class="menu-card">
-        <div class="menu-tag">FOR · 학원장</div>
-        <h3>학원장 강연·세미나</h3>
+        <div class="menu-tag">강연 · 세미나</div>
+        <h3>학원장 AI 강연·세미나</h3>
         <ul class="menu-list">
           <li>현직 학원장이 AI 도입하며 배운 것</li>
           <li>학원 운영 시간 줄이는 AI 워크플로우</li>
@@ -988,18 +985,18 @@
         <div class="menu-note">의뢰·문의는 이메일로 부담 없이 보내주세요.</div>
       </div>
       <div class="menu-card">
-        <div class="menu-tag">FOR · 학부모</div>
-        <h3>학부모 강연·콘텐츠</h3>
+        <div class="menu-tag">실습 워크숍</div>
+        <h3>학원 맞춤 도구 제작 워크숍</h3>
         <ul class="menu-list">
-          <li>AI 시대 우리 아이 교육 — 어디까지 쓰고 어디서 멈출까</li>
-          <li>학년별 추천·금지 AI 도구 가이드</li>
-          <li>학교·도서관·학부모회 초청 강연</li>
-          <li>분기별 학부모 토크콘서트 (오픈 행사)</li>
+          <li>페르소나·자동화 첫 세팅 실습</li>
+          <li>노션·자체 시스템 직접 만들기</li>
+          <li>반복 업무 1가지 자동화까지 완성</li>
+          <li>소수 정원 — 끝나면 산출물이 손에</li>
         </ul>
-        <div class="menu-note">학교·학부모회는 사전 협의로 진행합니다.</div>
+        <div class="menu-note">시리즈 단계별로 진행 — 아래 시리즈 참조.</div>
       </div>
       <div class="menu-card">
-        <div class="menu-tag">FOR · 학원 운영자</div>
+        <div class="menu-tag">1:1 자문</div>
         <h3>학원 AI 도입 자문</h3>
         <ul class="menu-list">
           <li>학원 현황 진단 — 도입 우선순위 정리</li>
@@ -1040,7 +1037,7 @@
           <h4>반복 작업 위임</h4>
           <p>매번 하던 일을 AI에게 맡김 — 자동화 가이드·페르소나 세팅</p>
         </div>
-        <div class="stg-when">6월 11일</div>
+        <div class="stg-when">6/11 · 무료</div>
       </div>
       <div class="stage">
         <div class="stg-num">3</div>
@@ -1078,24 +1075,23 @@
       <h2>운영자</h2>
     </div>
     <div class="about-grid">
-      <div class="about-photo">
-        [프로필 사진]
+      <div class="about-photo" style="border:none; background:none; padding:0; overflow:hidden;">
+        <img src="images/profile.png" alt="엄지희 프로필 사진" style="width:100%; height:100%; object-fit:cover; object-position:center top; border-radius:var(--radius);">
       </div>
       <div class="about-text">
         <h3>엄지희 (Eom Jihee)</h3>
-        <div class="about-subtitle">현직 학원장 · 초4 학부모 · 학부모회장</div>
-        <p>20년간 한국 사교육 현장에서 입시·학습 전략 컨설팅을 해온 현직 학원장입니다. 2025년부터 학원 운영과 가정 양쪽에서 AI 도구를 본격 도입·검증하며, "교육 현장에 진짜 쓰이는 AI 사용법"을 화두로 콘텐츠·강연·자문 활동을 합니다.</p>
-        <p>AI 옹호론도 AI 공포론도 아닌 균형 관점에서, "어디까지는 쓰고, 어디서는 멈춰야 하는가"를 학원장·학부모 양쪽에 전합니다.</p>
+        <div class="about-subtitle">현직 학원장 · 학군지 경력 20년</div>
+        <p>20년간 한국 사교육 현장에서 입시·학습 전략 컨설팅을 해온 현직 학원장입니다. 2025년부터 학원 운영에 AI 도구를 본격 도입·검증하며, "학원 현장에 진짜 쓰이는 AI 사용법"을 화두로 학원장 대상 강연·워크숍·자문 활동을 합니다.</p>
+        <p>AI 옹호론도 AI 공포론도 아닌 균형 관점에서, "어디까지 AI에게 맡기고 어디서부터 원장이 직접 해야 하는가"를 동료 학원장들에게 전합니다.</p>
         <ul>
           <li>T-Point Edu 학원장 (강동구 고덕동, 초·중·고 수학·영어)</li>
-          <li>거여초등학교 학부모회 회장 (2026~)</li>
           <li>대치·반포·고덕 학군지 경력 20년</li>
-          <li>초등학교 4학년 자녀의 학부모</li>
+          <li>거여초등학교 학부모회 회장 (2026~)</li>
         </ul>
 
         <div class="other-channels">
-          <h4>다른 채널</h4>
-          <p>학부모를 위한 일반 교육 콘텐츠는 별도 채널 <a href="https://instagram.com/todak_gongbu" target="_blank" rel="noopener">토닥공부 (@todak_gongbu)</a>에서 운영합니다.</p>
+          <h4>학부모이신가요?</h4>
+          <p>이 채널은 <strong class="navy">학원장 전용</strong>입니다. 학부모를 위한 AI·교육 콘텐츠는 별도 채널 <a href="https://instagram.com/todak_gongbu" target="_blank" rel="noopener">토닥공부 (@todak_gongbu)</a>에서 운영합니다.</p>
         </div>
       </div>
     </div>
@@ -1108,7 +1104,7 @@
     <div class="section-head">
       <div class="section-num">07 — CONTACT</div>
       <h2>가벼운 한 줄로 시작하세요</h2>
-      <p class="section-sub">강연·콘텐츠·자문 의뢰, 협업 제안, 단순 질문 — 모두 환영합니다.</p>
+      <p class="section-sub">강연·워크숍·자문 의뢰, 협업 제안, 단순 질문 — 모두 환영합니다.</p>
     </div>
     <div class="contact-grid">
       <div class="contact-row">
